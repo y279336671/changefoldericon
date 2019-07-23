@@ -25,7 +25,7 @@
 {
     NSLog(@"click");
     
-    NSString *path = @"/Users/administrator/Desktop/test";
+    NSString *path = @"/Users/yanghe/Desktop/test";
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     BOOL isExist = [fileManager fileExistsAtPath:path];
@@ -42,6 +42,8 @@
          [self changeIcon:path];
     }
 }
+
+
 
 - (void)changeIcon:(NSString *)path
 {

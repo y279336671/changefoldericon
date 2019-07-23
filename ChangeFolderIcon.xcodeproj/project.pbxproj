@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		576E3A2622E6A2E300CDA640 /* iTermServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E3A2522E6A2E300CDA640 /* iTermServiceProvider.m */; };
 		C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E8822E550D800FD7475 /* AppDelegate.m */; };
 		C3330E8C22E550D800FD7475 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E8B22E550D800FD7475 /* ViewController.m */; };
 		C3330E8E22E550D900FD7475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3330E8D22E550D900FD7475 /* Assets.xcassets */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		576E3A2422E6A2E300CDA640 /* iTermServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTermServiceProvider.h; sourceTree = "<group>"; };
+		576E3A2522E6A2E300CDA640 /* iTermServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTermServiceProvider.m; sourceTree = "<group>"; };
 		C3330E8422E550D800FD7475 /* ChangeFolderIcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeFolderIcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3330E8722E550D800FD7475 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3330E8822E550D800FD7475 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		576E3A2322E6A2E300CDA640 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				576E3A2422E6A2E300CDA640 /* iTermServiceProvider.h */,
+				576E3A2522E6A2E300CDA640 /* iTermServiceProvider.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		C3330E7B22E550D800FD7475 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +112,7 @@
 		C3330E8622E550D800FD7475 /* ChangeFolderIcon */ = {
 			isa = PBXGroup;
 			children = (
+				576E3A2322E6A2E300CDA640 /* Services */,
 				C3330E8722E550D800FD7475 /* AppDelegate.h */,
 				C3330E8822E550D800FD7475 /* AppDelegate.m */,
 				C3330E8A22E550D800FD7475 /* ViewController.h */,
@@ -262,6 +275,7 @@
 			files = (
 				C3330E8C22E550D800FD7475 /* ViewController.m in Sources */,
 				C3330E9422E550DA00FD7475 /* main.m in Sources */,
+				576E3A2622E6A2E300CDA640 /* iTermServiceProvider.m in Sources */,
 				C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +446,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = meiqing.ChangeFolderIcon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -449,6 +464,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = meiqing.ChangeFolderIcon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
