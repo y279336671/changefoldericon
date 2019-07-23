@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "DestinationView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<NSApplicationDelegate>
 
 @end
 
