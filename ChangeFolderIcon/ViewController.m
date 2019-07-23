@@ -50,7 +50,6 @@
 - (void)changeIconClick:(NSString *)path
 {
     NSLog(@"click");
-    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     BOOL isExist = [fileManager fileExistsAtPath:path];
@@ -67,6 +66,8 @@
          [self changeIcon:path];
     }
 }
+
+
 
 - (void)changeIcon:(NSString *)path
 {

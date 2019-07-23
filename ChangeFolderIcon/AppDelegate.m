@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DestinationView.h"
+#import "iTermServiceProvider.h"
 
 @interface AppDelegate ()<NSApplicationDelegate>
 
@@ -16,7 +16,12 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [NSApp registerServicesMenuSendTypes:[NSArray arrayWithObjects:NSPasteboardTypeString, nil]
+                             returnTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, NSStringPboardType, nil]];
     // Insert code here to initialize your application
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [NSApp setServicesProvider:[[iTermServiceProvider alloc] init]];
+    });
 }
 
 
