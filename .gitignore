@@ -1,0 +1,50 @@
+# Created by https://www.gitignore.io/api/xcode
+
+### Xcode ###
+# 
+
+# Build generated
+build/
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+*.xcshareddata
+*.xcuserdata
+
+project.xcworkspace  
+UserInterfaceState.xcuserstate  
+project.xcworkspace/  
+UserInterface.xcuserstate
+
+
+*.xcworkspace
+
+
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# End of https://www.gitignore.io/api/xcode
