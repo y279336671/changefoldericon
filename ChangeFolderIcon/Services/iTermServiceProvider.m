@@ -9,9 +9,6 @@
 #import <AppKit/AppKit.h>
 #import "iTermServiceProvider.h"
 
-
-
-
 @implementation iTermServiceProvider
 
 
