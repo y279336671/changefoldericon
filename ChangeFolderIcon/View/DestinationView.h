@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@protocol DragDropViewDelegate <NSObject>
+-(void)dragDropViewFileList:(NSArray*)fileList;
+@end
 
 @interface DestinationView : NSView
+@property (weak) id<DragDropViewDelegate> delegate;
 
 @end
 
-NS_ASSUME_NONNULL_END

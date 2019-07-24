@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "iTermServiceProvider.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<NSApplicationDelegate>
 
 @end
 

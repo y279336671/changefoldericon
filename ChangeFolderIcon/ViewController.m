@@ -7,6 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "DestinationView.h"
+
+@interface ViewController()<DragDropViewDelegate>
+
+@end
 
 @implementation ViewController
 
@@ -15,17 +20,36 @@
 
     // Do any additional setup after loading the view.
     
-    NSButton *button = [[NSButton alloc]initWithFrame:CGRectMake(80, 200, 200, 80)];
-    [button setTitle:@"make changed"];
-    [button setAction:@selector(changeIconClick)];
-    [self.view addSubview:button];
+//    NSButton *button = [[NSButton alloc]initWithFrame:CGRectMake(80, 200, 200, 80)];
+//    [button setTitle:@"make changed"];
+//    [button setAction:@selector(changeIconClick)];
+//    [self.view addSubview:button];
+    
+    
+    DestinationView *dView = [[DestinationView alloc]initWithFrame:CGRectMake(0, 0, 500, 500)];
+    dView.delegate = self;
+    [self.view addSubview:dView];
 }
 
-- (void)changeIconClick
+/***
+ 第五步：实现dragdropview的代理函数，如果有数据返回就会触发这个函数
+ ***/
+-(void)dragDropViewFileList:(NSArray *)fileList{
+    //如果数组不存在或为空直接返回不做处理（这种方法应该被广泛的使用，在进行数据处理前应该现判断是否为空。）
+    if(!fileList || [fileList count] <= 0)return;
+    //在这里我们将遍历这个数字，输出所有的链接，在后台你将会看到所有接受到的文件地址
+    for (int n = 0 ; n < [fileList count] ; n++) {
+        NSString *fileName = [fileList objectAtIndex:n];
+        NSLog(@">>> %@",fileName);
+        [self changeIconClick:fileName];
+    }
+    
+}
+
+
+- (void)changeIconClick:(NSString *)path
 {
     NSLog(@"click");
-    
-    NSString *path = @"/Users/yanghe/Desktop/test";
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     BOOL isExist = [fileManager fileExistsAtPath:path];
