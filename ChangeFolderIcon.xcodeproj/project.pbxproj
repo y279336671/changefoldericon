@@ -15,6 +15,7 @@
 		C3330E8E22E550D900FD7475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3330E8D22E550D900FD7475 /* Assets.xcassets */; };
 		C3330E9122E550DA00FD7475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3330E8F22E550DA00FD7475 /* Main.storyboard */; };
 		C3330E9422E550DA00FD7475 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E9322E550DA00FD7475 /* main.m */; };
+		C33718FF22EAA9DC000BE58C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33718FE22EAA9DC000BE58C /* Media.xcassets */; };
 		C339449122E5C3EB004A9274 /* DestinationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C339449022E5C3EB004A9274 /* DestinationView.m */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		C3330E9222E550DA00FD7475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3330E9322E550DA00FD7475 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3330E9522E550DA00FD7475 /* ChangeFolderIcon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeFolderIcon.entitlements; sourceTree = "<group>"; };
+		C33718FE22EAA9DC000BE58C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C339448F22E5C3EB004A9274 /* DestinationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DestinationView.h; sourceTree = "<group>"; };
 		C339449022E5C3EB004A9274 /* DestinationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DestinationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 		576E3A2E22E6E72600CDA640 /* ChangeIconContextualMenu */ = {
 			isa = PBXGroup;
 			children = (
+				C33718FE22EAA9DC000BE58C /* Media.xcassets */,
 				576E3A2F22E6E72600CDA640 /* FinderSync.h */,
 				576E3A3022E6E72600CDA640 /* FinderSync.m */,
 				576E3A3222E6E72600CDA640 /* Info.plist */,
@@ -237,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33718FF22EAA9DC000BE58C /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

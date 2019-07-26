@@ -1,12 +1,14 @@
 //
 //  FinderSync.m
-//  ChangeIconContextualMenu
+//  DemoFinderSync
 //
-//  Created by 杨贺 on 2019/7/23.
-//  Copyright © 2019 meiqing. All rights reserved.
+//  Created by Yang on 12/2/15.
+//  Copyright © 2015 Yang. All rights reserved.
 //
 
 #import "FinderSync.h"
+
+typedef void (^URLActionBlock)(NSURL * obj, NSUInteger idx, BOOL *stop);
 
 @interface FinderSync ()
 
@@ -16,76 +18,244 @@
 
 @implementation FinderSync
 
+
 - (instancetype)init {
     self = [super init];
-
-    NSLog(@"%s launched from %@ ; compiled at %s", __PRETTY_FUNCTION__, [[NSBundle mainBundle] bundlePath], __TIME__);
-
-    // Set up the directory we are syncing.
     self.myFolderURL = [NSURL fileURLWithPath:@"/"];
     [FIFinderSyncController defaultController].directoryURLs = [NSSet setWithObject:self.myFolderURL];
-
-    // Set up images for our badge identifiers. For demonstration purposes, this uses off-the-shelf images.
-    [[FIFinderSyncController defaultController] setBadgeImage:[NSImage imageNamed: NSImageNameColorPanel] label:@"Status One" forBadgeIdentifier:@"One"];
-    [[FIFinderSyncController defaultController] setBadgeImage:[NSImage imageNamed: NSImageNameCaution] label:@"Status Two" forBadgeIdentifier:@"Two"];
     
     return self;
 }
 
 #pragma mark - Primary Finder Sync protocol methods
-
 - (void)beginObservingDirectoryAtURL:(NSURL *)url {
-    // The user is now seeing the container's contents.
-    // If they see it in more than one view at a time, we're only told once.
-    NSLog(@"beginObservingDirectoryAtURL:%@", url.filePathURL);
+    
 }
 
 
 - (void)endObservingDirectoryAtURL:(NSURL *)url {
-    // The user is no longer seeing the container's contents.
-    NSLog(@"endObservingDirectoryAtURL:%@", url.filePathURL);
+    
 }
 
 - (void)requestBadgeIdentifierForURL:(NSURL *)url {
-    NSLog(@"requestBadgeIdentifierForURL:%@", url.filePathURL);
-    
-    // For demonstration purposes, this picks one of our two badges, or no badge at all, based on the filename.
-    NSInteger whichBadge = [url.filePathURL hash] % 3;
-    NSString* badgeIdentifier = @[@"", @"One", @"Two"][whichBadge];
-    [[FIFinderSyncController defaultController] setBadgeIdentifier:badgeIdentifier forURL:url];
+  
 }
 
 #pragma mark - Menu and toolbar item support
-
 - (NSString *)toolbarItemName {
-    return @"ChangeIconContextualMenu";
+    return @"AnyShare";
 }
 
 - (NSString *)toolbarItemToolTip {
-    return @"ChangeIconContextualMenu: Click the toolbar item for a menu.";
+    return @"AnyShare: 使用AnyShare相关的功能";
 }
 
 - (NSImage *)toolbarItemImage {
-    return [NSImage imageNamed:NSImageNameCaution];
+    NSImage * toolBarIcon = [NSImage imageNamed:@"Menu"];
+    toolBarIcon.template = YES;
+    return toolBarIcon;
 }
 
 - (NSMenu *)menuForMenuKind:(FIMenuKind)whichMenu {
-    // Produce a menu for the extension.
-    NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
-    [menu addItemWithTitle:@"Example Menu Item" action:@selector(sampleAction:) keyEquivalent:@""];
-
+    NSMenu *menu = nil;
+    
+    switch (whichMenu) {
+            //        case FIMenuKindToolbarItemMenu:
+            //            menu = [self toolbarMenu];
+            //            break;
+            //        case FIMenuKindContextualMenuForContainer:
+            //            menu = [self directoryMenu];
+            //            break;
+        case FIMenuKindContextualMenuForItems:
+            menu = [self fileMenu];
+            break;
+        default:
+            break;
+    }
+    
     return menu;
 }
 
-- (IBAction)sampleAction:(id)sender {
-    NSURL* target = [[FIFinderSyncController defaultController] targetedURL];
-    NSArray* items = [[FIFinderSyncController defaultController] selectedItemURLs];
 
-    NSLog(@"sampleAction: menu item: %@, target = %@, items = ", [sender title], [target filePathURL]);
-    [items enumerateObjectsUsingBlock: ^(id obj, NSUInteger idx, BOOL *stop) {
-        NSLog(@"    %@", [obj filePathURL]);
+#pragma mark - Actions
+- (IBAction)makeCaution:(id)sender {
+    [self actionToSelectedURLs:^(NSURL * obj, NSUInteger idx, BOOL *stop) {
+        [[FIFinderSyncController defaultController] setBadgeIdentifier:@"Caution" forURL:obj];
     }];
 }
 
+- (IBAction)makeColor:(id)sender {
+    [self actionToSelectedURLs:^(NSURL * obj, NSUInteger idx, BOOL *stop) {
+        [[FIFinderSyncController defaultController] setBadgeIdentifier:@"Color" forURL:obj];
+    }];
+}
+
+- (IBAction)makeUser:(id)sender {
+    [self actionToSelectedURLs:^(NSURL * obj, NSUInteger idx, BOOL *stop) {
+        [[FIFinderSyncController defaultController] setBadgeIdentifier:@"User" forURL:obj];
+    }];
+}
+
+- (IBAction)gotoMyFolder:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:self.myFolderURL];
+}
+
+- (void)actionToSelectedURLs:(URLActionBlock)action
+{
+    NSArray* items = [FIFinderSyncController defaultController].selectedItemURLs;
+    if (items.count) {
+        [items enumerateObjectsUsingBlock:^(NSURL * obj, NSUInteger idx, BOOL * stop) {
+            if (![self fileUrlIsInvisible:obj]) {
+                action(obj, idx, stop);
+            }
+        }];
+    }
+    else {
+        action([FIFinderSyncController defaultController].targetedURL, 0, nil);
+    }
+    
+}
+
+#pragma mark - Menus
+- (NSMenu *)toolbarMenu
+{
+    NSMenu *menu = nil;
+    if ([self toolBarMenuRequestFromMyFolder]) {
+        menu = [[NSMenu alloc] initWithTitle:@""];
+        NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"Make Caution" action:@selector(makeCaution:) keyEquivalent:@""];
+        makeCautionItem.image = [NSImage imageNamed: NSImageNameCaution];
+        NSMenuItem * makeColorItem = [[NSMenuItem alloc] initWithTitle:@"Make Corlor" action:@selector(makeColor:) keyEquivalent:@""];
+        makeColorItem.image = [NSImage imageNamed:NSImageNameColorPanel];
+        NSMenuItem * makeUserItem = [[NSMenuItem alloc] initWithTitle:@"Make User" action:@selector(makeUser:) keyEquivalent:@""];
+        makeUserItem.image = [NSImage imageNamed:NSImageNameUser];
+        
+        [menu addItem:makeCautionItem];
+        [menu addItem:makeColorItem];
+        [menu addItem:makeUserItem];
+    }
+    else {
+        menu = [[NSMenu alloc] initWithTitle:@""];
+        NSMenuItem * gotoItem = [[NSMenuItem alloc] initWithTitle:@"Goto AnyShare Folder" action:@selector(gotoMyFolder:) keyEquivalent:@""];
+        [menu addItem:gotoItem];
+    }
+    
+    return menu;
+}
+
+- (NSMenu *)fileMenu
+{
+    if (![self validateFileMenu]) {
+        return nil;
+    }
+    
+    NSMenu *menu = [[NSMenu alloc] initWithTitle:@"111"];
+    NSMenuItem * menuItem = [[NSMenuItem alloc] initWithTitle:@"修改文件夹图标" action:nil keyEquivalent:@""];
+    menuItem.image = [NSImage imageNamed:@"menu"];
+    
+    
+    //    finderSyncController = [[FinderSyncController alloc]initWithNibName:@"FinderSyncController" bundle:nil];
+    
+    NSMenu *subMenu = [[NSMenu alloc] initWithTitle:@""];
+    
+    NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"Make Caution" action:@selector(makeCaution:) keyEquivalent:@""];
+    makeCautionItem.image = [NSImage imageNamed: NSImageNameCaution];
+    
+    NSMenuItem * makeColorItem = [[NSMenuItem alloc] initWithTitle:@"Make Corlor" action:@selector(makeColor:) keyEquivalent:@""];
+    makeColorItem.image = [NSImage imageNamed:NSImageNameColorPanel];
+    
+    NSMenuItem * makeUserItem = [[NSMenuItem alloc] initWithTitle:@"Make User" action:@selector(makeUser:) keyEquivalent:@""];
+    makeUserItem.image = [NSImage imageNamed:NSImageNameUser];
+    
+    NSMenuItem * testItem = [[NSMenuItem alloc] initWithTitle:@"test" action:@selector(makeUser:) keyEquivalent:@""];
+    testItem.image = [NSImage imageNamed:@"music"];
+    
+    [subMenu addItem:makeCautionItem];
+    [subMenu addItem:makeColorItem];
+    [subMenu addItem:makeUserItem];
+    [subMenu addItem:testItem];
+    
+    menuItem.submenu = subMenu;
+    //    NSLog(@"finderSyncController==%@",finderSyncController.menu);
+    [menu addItem:menuItem];
+    
+    return menu;
+}
+
+- (NSMenu *)directoryMenu
+{
+    NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
+    NSMenuItem * menuItem = [[NSMenuItem alloc] initWithTitle:@"AnyShare111" action:nil keyEquivalent:@""];
+    menuItem.image = [NSImage imageNamed:@"Menu"];
+    NSMenu *subMenu = [[NSMenu alloc] initWithTitle:@""];
+    NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"Make folder Caution" action:@selector(makeCaution:) keyEquivalent:@""];
+    makeCautionItem.image = [NSImage imageNamed: NSImageNameCaution];
+    NSMenuItem * makeColorItem = [[NSMenuItem alloc] initWithTitle:@"Make folder Corlor" action:@selector(makeColor:) keyEquivalent:@""];
+    makeColorItem.image = [NSImage imageNamed:NSImageNameColorPanel];
+    NSMenuItem * makeUserItem = [[NSMenuItem alloc] initWithTitle:@"Make folder User" action:@selector(makeUser:) keyEquivalent:@""];
+    makeUserItem.image = [NSImage imageNamed:NSImageNameUser];
+    
+    [subMenu addItem:makeCautionItem];
+    [subMenu addItem:makeColorItem];
+    [subMenu addItem:makeUserItem];
+    
+    menuItem.submenu = subMenu;
+    [menu addItem:menuItem];
+    
+    return menu;
+}
+
+#pragma validate menu
+- (BOOL)validateToolbarMenu
+{
+    BOOL bResult = NO;
+    NSUInteger itemCounts = [FIFinderSyncController defaultController].selectedItemURLs.count;
+    bResult = itemCounts == 1 ? YES : NO;
+    
+    return bResult;
+}
+- (BOOL)validateFileMenu
+{
+    BOOL bResult = NO;
+    NSUInteger itemCounts = [FIFinderSyncController defaultController].selectedItemURLs.count;
+    bResult = itemCounts == 1 ? YES : NO;
+    
+    return bResult;
+}
+- (BOOL)validateDirectoryMenu
+{
+    return YES;
+}
+
+- (BOOL)toolBarMenuRequestFromMyFolder
+{
+    BOOL bResult = NO;
+    NSURL * target = [FIFinderSyncController defaultController].targetedURL;
+    bResult = [self path:target.path isSubPathOfPath:self.myFolderURL.path];
+    
+    return bResult;
+}
+
+#pragma mark path utils
+- (BOOL)path:(NSString *)aPath isSubPathOfPath:(NSString *)anotherPath
+{
+    BOOL bResult = NO;
+    
+    bResult = [aPath hasPrefix:anotherPath];
+    
+    return bResult;
+}
+
+- (BOOL)fileUrlIsInvisible:(NSURL *)fileUrl
+{
+    BOOL bResult = NO;
+    NSNumber * numIsHidden = nil;
+    
+    [fileUrl getResourceValue:&numIsHidden forKey:NSURLIsHiddenKey error:NULL];
+    bResult = numIsHidden.boolValue;
+    
+    return bResult;
+}
+
 @end
+
 
