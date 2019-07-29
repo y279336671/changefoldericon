@@ -78,26 +78,51 @@ typedef void (^URLActionBlock)(NSURL * obj, NSUInteger idx, BOOL *stop);
 
 
 #pragma mark - Actions
-- (IBAction)makeCaution:(id)sender {
+- (void)makeCaution:(id)sender {
+    __weak typeof(self) weakSelf = self;
     [self actionToSelectedURLs:^(NSURL * obj, NSUInteger idx, BOOL *stop) {
         [[FIFinderSyncController defaultController] setBadgeIdentifier:@"Caution" forURL:obj];
+        [weakSelf changeIcon:obj];
     }];
 }
 
 - (IBAction)makeColor:(id)sender {
+    __weak typeof(self) weakSelf = self;
     [self actionToSelectedURLs:^(NSURL * obj, NSUInteger idx, BOOL *stop) {
         [[FIFinderSyncController defaultController] setBadgeIdentifier:@"Color" forURL:obj];
+        [weakSelf changeIcon:obj];
+
     }];
 }
 
 - (IBAction)makeUser:(id)sender {
+    __weak typeof(self) weakSelf = self;
     [self actionToSelectedURLs:^(NSURL * obj, NSUInteger idx, BOOL *stop) {
         [[FIFinderSyncController defaultController] setBadgeIdentifier:@"User" forURL:obj];
+        [weakSelf changeIcon:obj];
+
     }];
 }
 
 - (IBAction)gotoMyFolder:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:self.myFolderURL];
+}
+
+- (void)changeIcon:(NSURL *)pathUrl
+{
+    
+    
+    
+    NSString *path = [pathUrl path];
+    NSWorkspace *workSpace = [NSWorkspace sharedWorkspace];
+    
+    NSImage *image = [NSImage imageNamed:@"music"];
+    BOOL success = [workSpace setIcon:image forFile:path options:NSExcludeQuickDrawElementsIconCreationOption];
+    if (success) {
+        NSLog(@"修改成功");
+    }else {
+        NSLog(@"修改失败");
+    }
 }
 
 - (void)actionToSelectedURLs:(URLActionBlock)action
@@ -117,30 +142,30 @@ typedef void (^URLActionBlock)(NSURL * obj, NSUInteger idx, BOOL *stop);
 }
 
 #pragma mark - Menus
-- (NSMenu *)toolbarMenu
-{
-    NSMenu *menu = nil;
-    if ([self toolBarMenuRequestFromMyFolder]) {
-        menu = [[NSMenu alloc] initWithTitle:@""];
-        NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"Make Caution" action:@selector(makeCaution:) keyEquivalent:@""];
-        makeCautionItem.image = [NSImage imageNamed: NSImageNameCaution];
-        NSMenuItem * makeColorItem = [[NSMenuItem alloc] initWithTitle:@"Make Corlor" action:@selector(makeColor:) keyEquivalent:@""];
-        makeColorItem.image = [NSImage imageNamed:NSImageNameColorPanel];
-        NSMenuItem * makeUserItem = [[NSMenuItem alloc] initWithTitle:@"Make User" action:@selector(makeUser:) keyEquivalent:@""];
-        makeUserItem.image = [NSImage imageNamed:NSImageNameUser];
-        
-        [menu addItem:makeCautionItem];
-        [menu addItem:makeColorItem];
-        [menu addItem:makeUserItem];
-    }
-    else {
-        menu = [[NSMenu alloc] initWithTitle:@""];
-        NSMenuItem * gotoItem = [[NSMenuItem alloc] initWithTitle:@"Goto AnyShare Folder" action:@selector(gotoMyFolder:) keyEquivalent:@""];
-        [menu addItem:gotoItem];
-    }
-    
-    return menu;
-}
+//- (NSMenu *)toolbarMenu
+//{
+//    NSMenu *menu = nil;
+//    if ([self toolBarMenuRequestFromMyFolder]) {
+//        menu = [[NSMenu alloc] initWithTitle:@""];
+//        NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"Make Caution" action:@selector(makeCaution:) keyEquivalent:@""];
+//        makeCautionItem.image = [NSImage imageNamed: NSImageNameCaution];
+//        NSMenuItem * makeColorItem = [[NSMenuItem alloc] initWithTitle:@"Make Corlor" action:@selector(makeColor:) keyEquivalent:@""];
+//        makeColorItem.image = [NSImage imageNamed:NSImageNameColorPanel];
+//        NSMenuItem * makeUserItem = [[NSMenuItem alloc] initWithTitle:@"Make User" action:@selector(makeUser:) keyEquivalent:@""];
+//        makeUserItem.image = [NSImage imageNamed:NSImageNameUser];
+//
+//        [menu addItem:makeCautionItem];
+//        [menu addItem:makeColorItem];
+//        [menu addItem:makeUserItem];
+//    }
+//    else {
+//        menu = [[NSMenu alloc] initWithTitle:@""];
+//        NSMenuItem * gotoItem = [[NSMenuItem alloc] initWithTitle:@"Goto AnyShare Folder" action:@selector(gotoMyFolder:) keyEquivalent:@""];
+//        [menu addItem:gotoItem];
+//    }
+//
+//    return menu;
+//}
 
 - (NSMenu *)fileMenu
 {
@@ -157,7 +182,7 @@ typedef void (^URLActionBlock)(NSURL * obj, NSUInteger idx, BOOL *stop);
     
     NSMenu *subMenu = [[NSMenu alloc] initWithTitle:@""];
     
-    NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"Make Caution" action:@selector(makeCaution:) keyEquivalent:@""];
+    NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"changeIcon" action:@selector(testChangeIcon) keyEquivalent:@""];
     makeCautionItem.image = [NSImage imageNamed: NSImageNameCaution];
     
     NSMenuItem * makeColorItem = [[NSMenuItem alloc] initWithTitle:@"Make Corlor" action:@selector(makeColor:) keyEquivalent:@""];
@@ -181,28 +206,37 @@ typedef void (^URLActionBlock)(NSURL * obj, NSUInteger idx, BOOL *stop);
     return menu;
 }
 
-- (NSMenu *)directoryMenu
+- (void)testChangeIcon
 {
-    NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
-    NSMenuItem * menuItem = [[NSMenuItem alloc] initWithTitle:@"AnyShare111" action:nil keyEquivalent:@""];
-    menuItem.image = [NSImage imageNamed:@"Menu"];
-    NSMenu *subMenu = [[NSMenu alloc] initWithTitle:@""];
-    NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"Make folder Caution" action:@selector(makeCaution:) keyEquivalent:@""];
-    makeCautionItem.image = [NSImage imageNamed: NSImageNameCaution];
-    NSMenuItem * makeColorItem = [[NSMenuItem alloc] initWithTitle:@"Make folder Corlor" action:@selector(makeColor:) keyEquivalent:@""];
-    makeColorItem.image = [NSImage imageNamed:NSImageNameColorPanel];
-    NSMenuItem * makeUserItem = [[NSMenuItem alloc] initWithTitle:@"Make folder User" action:@selector(makeUser:) keyEquivalent:@""];
-    makeUserItem.image = [NSImage imageNamed:NSImageNameUser];
-    
-    [subMenu addItem:makeCautionItem];
-    [subMenu addItem:makeColorItem];
-    [subMenu addItem:makeUserItem];
-    
-    menuItem.submenu = subMenu;
-    [menu addItem:menuItem];
-    
-    return menu;
+    NSLog(@"testChangeIcon click");
+    __weak typeof(self) weakSelf = self;
+    [self actionToSelectedURLs:^(NSURL * obj, NSUInteger idx, BOOL *stop) {
+        [weakSelf changeIcon:obj];
+    }];
 }
+
+//- (NSMenu *)directoryMenu
+//{
+//    NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
+//    NSMenuItem * menuItem = [[NSMenuItem alloc] initWithTitle:@"AnyShare111" action:nil keyEquivalent:@""];
+//    menuItem.image = [NSImage imageNamed:@"Menu"];
+//    NSMenu *subMenu = [[NSMenu alloc] initWithTitle:@""];
+//    NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"Make folder Caution" action:@selector(makeCaution:) keyEquivalent:@""];
+//    makeCautionItem.image = [NSImage imageNamed: NSImageNameCaution];
+//    NSMenuItem * makeColorItem = [[NSMenuItem alloc] initWithTitle:@"Make folder Corlor" action:@selector(makeColor:) keyEquivalent:@""];
+//    makeColorItem.image = [NSImage imageNamed:NSImageNameColorPanel];
+//    NSMenuItem * makeUserItem = [[NSMenuItem alloc] initWithTitle:@"Make folder User" action:@selector(makeUser:) keyEquivalent:@""];
+//    makeUserItem.image = [NSImage imageNamed:NSImageNameUser];
+//
+//    [subMenu addItem:makeCautionItem];
+//    [subMenu addItem:makeColorItem];
+//    [subMenu addItem:makeUserItem];
+//
+//    menuItem.submenu = subMenu;
+//    [menu addItem:menuItem];
+//
+//    return menu;
+//}
 
 #pragma validate menu
 - (BOOL)validateToolbarMenu
