@@ -22,7 +22,9 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [NSApp setServicesProvider:[[iTermServiceProvider alloc] init]];
     });
+    
 }
+
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

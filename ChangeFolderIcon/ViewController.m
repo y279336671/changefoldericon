@@ -29,6 +29,23 @@
     DestinationView *dView = [[DestinationView alloc]initWithFrame:CGRectMake(0, 0, 500, 500)];
     dView.delegate = self;
     [self.view addSubview:dView];
+    
+//    NSString *observedObject = @"com.changeIcon.shareData";
+    // 处理Mac不同的进程之间的通知
+    NSDistributedNotificationCenter *center =
+    [NSDistributedNotificationCenter defaultCenter];
+    [center addObserver: self
+               selector: @selector(callbackWithNotification:)
+                   name: @"PiaoYun Notification"
+                 object: nil];
+}
+
+//回调：
+- (void)callbackWithNotification:(NSNotification *)myNotification;
+{
+    NSLog(@"Notification Received");
+    NSString *path = (NSString *)myNotification.object;
+    [self changeIcon:path];
 }
 
 /***
