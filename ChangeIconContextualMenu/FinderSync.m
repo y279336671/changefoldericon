@@ -106,9 +106,6 @@ typedef void (^URLActionBlock)(NSURL * obj, NSUInteger idx, BOOL *stop);
     
     NSMenu *subMenu = [[NSMenu alloc] initWithTitle:@""];
     
-    NSMenuItem * makeCautionItem = [[NSMenuItem alloc] initWithTitle:@"timg" action:@selector(testChangeIcon:) keyEquivalent:@""];
-    makeCautionItem.image = [NSImage imageNamed: @"timg"];
-    
     NSMenuItem * makeColorItem = [[NSMenuItem alloc] initWithTitle:@"icon1" action:@selector(testChangeIcon:) keyEquivalent:@""];
     makeColorItem.image = [NSImage imageNamed:@"icon1"];
     
@@ -118,7 +115,6 @@ typedef void (^URLActionBlock)(NSURL * obj, NSUInteger idx, BOOL *stop);
     NSMenuItem * testItem = [[NSMenuItem alloc] initWithTitle:@"music" action:@selector(testChangeIcon:) keyEquivalent:@""];
     testItem.image = [NSImage imageNamed:@"music"];
     
-    [subMenu addItem:makeCautionItem];
     [subMenu addItem:makeColorItem];
     [subMenu addItem:makeUserItem];
     [subMenu addItem:testItem];
@@ -135,11 +131,13 @@ typedef void (^URLActionBlock)(NSURL * obj, NSUInteger idx, BOOL *stop);
 {
     NSString *path = [pathUrl path];
     
+    NSString *str = [NSString stringWithFormat:@"%@;%@",path,imageName];
+    
     //    NSString *observedObject = @"com.changeIcon.shareData";
     NSDistributedNotificationCenter *center1 =
     [NSDistributedNotificationCenter defaultCenter];
     [center1 postNotificationName: @"PiaoYun Notification"
-                           object: path
+                           object: str
                          userInfo: nil /* no dictionary */
                deliverImmediately: YES];
 }

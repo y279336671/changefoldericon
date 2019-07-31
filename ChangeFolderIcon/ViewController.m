@@ -44,8 +44,11 @@
 - (void)callbackWithNotification:(NSNotification *)myNotification;
 {
     NSLog(@"Notification Received");
-    NSString *path = (NSString *)myNotification.object;
-    [self changeIcon:path];
+    NSString *str = (NSString *)myNotification.object;
+    NSArray *array = [str componentsSeparatedByString:@";"];
+    NSString *path = array[0];
+    NSString *imageName = array[1];
+    [self changeIcon:path withImageName:imageName];
 }
 
 /***
@@ -74,22 +77,21 @@
         BOOL isSuccess = [fileManager createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:&error];
         if (isSuccess) {
             NSLog(@"createDirectory isSuccess");
-            [self changeIcon:path];
+            [self changeIcon:path withImageName:@"music"];
         }else {
             NSLog(@"%@",error);
             NSLog(@"文件不存在，创建文件失败");
         }
     }else {
-         [self changeIcon:path];
+        [self changeIcon:path withImageName:@"music"];
     }
 }
 
-
-
-- (void)changeIcon:(NSString *)path
+- (void)changeIcon:(NSString *)path withImageName:(NSString *)iamgeaName
 {
     NSWorkspace *workSpace = [NSWorkspace sharedWorkspace];
-    NSImage *image = [NSImage imageNamed:@"music"];
+    [workSpace setIcon:nil forFile:path options:NSExcludeQuickDrawElementsIconCreationOption];
+    NSImage *image = [NSImage imageNamed:iamgeaName];
     BOOL success = [workSpace setIcon:image forFile:path options:NSExcludeQuickDrawElementsIconCreationOption];
     if (success) {
         NSLog(@"修改成功");
