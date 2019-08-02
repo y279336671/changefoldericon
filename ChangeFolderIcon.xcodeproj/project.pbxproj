@@ -10,6 +10,8 @@
 		576E3A2622E6A2E300CDA640 /* iTermServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E3A2522E6A2E300CDA640 /* iTermServiceProvider.m */; };
 		576E3A3122E6E72600CDA640 /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E3A3022E6E72600CDA640 /* FinderSync.m */; };
 		576E3A3622E6E72600CDA640 /* ChangeIconContextualMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		57EA8BF922F3CFF3001366D2 /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA8BF822F3CFF3001366D2 /* FinderSync.m */; };
+		57EA8BFE22F3CFF3001366D2 /* ChangeIconQuickMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 57EA8BF522F3CFF3001366D2 /* ChangeIconQuickMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E8822E550D800FD7475 /* AppDelegate.m */; };
 		C3330E8C22E550D800FD7475 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E8B22E550D800FD7475 /* ViewController.m */; };
 		C3330E8E22E550D900FD7475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3330E8D22E550D900FD7475 /* Assets.xcassets */; };
@@ -27,6 +29,13 @@
 			remoteGlobalIDString = 576E3A2C22E6E72600CDA640;
 			remoteInfo = ChangeIconContextualMenu;
 		};
+		57EA8BFC22F3CFF3001366D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3330E7C22E550D800FD7475 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57EA8BF422F3CFF3001366D2;
+			remoteInfo = ChangeIconQuickMenu;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				57EA8BFE22F3CFF3001366D2 /* ChangeIconQuickMenu.appex in Embed App Extensions */,
 				576E3A3622E6E72600CDA640 /* ChangeIconContextualMenu.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -51,6 +61,11 @@
 		576E3A3022E6E72600CDA640 /* FinderSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinderSync.m; sourceTree = "<group>"; };
 		576E3A3222E6E72600CDA640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		576E3A3322E6E72600CDA640 /* ChangeIconContextualMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeIconContextualMenu.entitlements; sourceTree = "<group>"; };
+		57EA8BF522F3CFF3001366D2 /* ChangeIconQuickMenu.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ChangeIconQuickMenu.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		57EA8BF722F3CFF3001366D2 /* FinderSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinderSync.h; sourceTree = "<group>"; };
+		57EA8BF822F3CFF3001366D2 /* FinderSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinderSync.m; sourceTree = "<group>"; };
+		57EA8BFA22F3CFF3001366D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57EA8BFB22F3CFF3001366D2 /* ChangeIconQuickMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeIconQuickMenu.entitlements; sourceTree = "<group>"; };
 		C3330E8422E550D800FD7475 /* ChangeFolderIcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeFolderIcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3330E8722E550D800FD7475 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3330E8822E550D800FD7475 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,6 +83,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		576E3A2A22E6E72600CDA640 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57EA8BF222F3CFF3001366D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -105,11 +127,23 @@
 			path = ChangeIconContextualMenu;
 			sourceTree = "<group>";
 		};
+		57EA8BF622F3CFF3001366D2 /* ChangeIconQuickMenu */ = {
+			isa = PBXGroup;
+			children = (
+				57EA8BF722F3CFF3001366D2 /* FinderSync.h */,
+				57EA8BF822F3CFF3001366D2 /* FinderSync.m */,
+				57EA8BFA22F3CFF3001366D2 /* Info.plist */,
+				57EA8BFB22F3CFF3001366D2 /* ChangeIconQuickMenu.entitlements */,
+			);
+			path = ChangeIconQuickMenu;
+			sourceTree = "<group>";
+		};
 		C3330E7B22E550D800FD7475 = {
 			isa = PBXGroup;
 			children = (
 				C3330E8622E550D800FD7475 /* ChangeFolderIcon */,
 				576E3A2E22E6E72600CDA640 /* ChangeIconContextualMenu */,
+				57EA8BF622F3CFF3001366D2 /* ChangeIconQuickMenu */,
 				C3330E8522E550D800FD7475 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +153,7 @@
 			children = (
 				C3330E8422E550D800FD7475 /* ChangeFolderIcon.app */,
 				576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */,
+				57EA8BF522F3CFF3001366D2 /* ChangeIconQuickMenu.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +205,23 @@
 			productReference = 576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		57EA8BF422F3CFF3001366D2 /* ChangeIconQuickMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57EA8C0122F3CFF3001366D2 /* Build configuration list for PBXNativeTarget "ChangeIconQuickMenu" */;
+			buildPhases = (
+				57EA8BF122F3CFF3001366D2 /* Sources */,
+				57EA8BF222F3CFF3001366D2 /* Frameworks */,
+				57EA8BF322F3CFF3001366D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChangeIconQuickMenu;
+			productName = ChangeIconQuickMenu;
+			productReference = 57EA8BF522F3CFF3001366D2 /* ChangeIconQuickMenu.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C3330E8322E550D800FD7475 /* ChangeFolderIcon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3330EAE22E550DA00FD7475 /* Build configuration list for PBXNativeTarget "ChangeFolderIcon" */;
@@ -183,6 +235,7 @@
 			);
 			dependencies = (
 				576E3A3522E6E72600CDA640 /* PBXTargetDependency */,
+				57EA8BFD22F3CFF3001366D2 /* PBXTargetDependency */,
 			);
 			name = ChangeFolderIcon;
 			productName = ChangeFolderIcon;
@@ -200,6 +253,14 @@
 				TargetAttributes = {
 					576E3A2C22E6E72600CDA640 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
+					};
+					57EA8BF422F3CFF3001366D2 = {
+						CreatedOnToolsVersion = 10.3;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
@@ -231,6 +292,7 @@
 			targets = (
 				C3330E8322E550D800FD7475 /* ChangeFolderIcon */,
 				576E3A2C22E6E72600CDA640 /* ChangeIconContextualMenu */,
+				57EA8BF422F3CFF3001366D2 /* ChangeIconQuickMenu */,
 			);
 		};
 /* End PBXProject section */
@@ -241,6 +303,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C33718FF22EAA9DC000BE58C /* Media.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57EA8BF322F3CFF3001366D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +333,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		57EA8BF122F3CFF3001366D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57EA8BF922F3CFF3001366D2 /* FinderSync.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3330E8022E550D800FD7475 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,6 +360,11 @@
 			isa = PBXTargetDependency;
 			target = 576E3A2C22E6E72600CDA640 /* ChangeIconContextualMenu */;
 			targetProxy = 576E3A3422E6E72600CDA640 /* PBXContainerItemProxy */;
+		};
+		57EA8BFD22F3CFF3001366D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57EA8BF422F3CFF3001366D2 /* ChangeIconQuickMenu */;
+			targetProxy = 57EA8BFC22F3CFF3001366D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -339,6 +421,44 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = meiqing.ChangeFolderIcon.ChangeIconContextualMenu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		57EA8BFF22F3CFF3001366D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ChangeIconQuickMenu/ChangeIconQuickMenu.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ChangeIconQuickMenu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = meiqing.ChangeFolderIcon.ChangeIconQuickMenu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		57EA8C0022F3CFF3001366D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ChangeIconQuickMenu/ChangeIconQuickMenu.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ChangeIconQuickMenu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = meiqing.ChangeFolderIcon.ChangeIconQuickMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -507,6 +627,15 @@
 			buildConfigurations = (
 				576E3A3722E6E72600CDA640 /* Debug */,
 				576E3A3822E6E72600CDA640 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57EA8C0122F3CFF3001366D2 /* Build configuration list for PBXNativeTarget "ChangeIconQuickMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57EA8BFF22F3CFF3001366D2 /* Debug */,
+				57EA8C0022F3CFF3001366D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

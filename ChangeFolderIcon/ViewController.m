@@ -38,6 +38,10 @@
                selector: @selector(callbackWithNotification:)
                    name: @"PiaoYun Notification"
                  object: nil];
+    [center addObserver: self
+               selector: @selector(callbackWithNotification:)
+                   name: @"PiaoYun Notification1"
+                 object: nil];
 }
 
 //回调：
