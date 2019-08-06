@@ -12,6 +12,7 @@
 		576E3A3622E6E72600CDA640 /* ChangeIconContextualMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		57EA8BF922F3CFF3001366D2 /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA8BF822F3CFF3001366D2 /* FinderSync.m */; };
 		57EA8BFE22F3CFF3001366D2 /* ChangeIconQuickMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 57EA8BF522F3CFF3001366D2 /* ChangeIconQuickMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		57EA8C0322F3D947001366D2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA8C0222F3D947001366D2 /* Media.xcassets */; };
 		C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E8822E550D800FD7475 /* AppDelegate.m */; };
 		C3330E8C22E550D800FD7475 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E8B22E550D800FD7475 /* ViewController.m */; };
 		C3330E8E22E550D900FD7475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3330E8D22E550D900FD7475 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		57EA8BF822F3CFF3001366D2 /* FinderSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinderSync.m; sourceTree = "<group>"; };
 		57EA8BFA22F3CFF3001366D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57EA8BFB22F3CFF3001366D2 /* ChangeIconQuickMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeIconQuickMenu.entitlements; sourceTree = "<group>"; };
+		57EA8C0222F3D947001366D2 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C3330E8422E550D800FD7475 /* ChangeFolderIcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeFolderIcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3330E8722E550D800FD7475 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3330E8822E550D800FD7475 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		57EA8BF622F3CFF3001366D2 /* ChangeIconQuickMenu */ = {
 			isa = PBXGroup;
 			children = (
+				57EA8C0222F3D947001366D2 /* Media.xcassets */,
 				57EA8BF722F3CFF3001366D2 /* FinderSync.h */,
 				57EA8BF822F3CFF3001366D2 /* FinderSync.m */,
 				57EA8BFA22F3CFF3001366D2 /* Info.plist */,
@@ -310,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57EA8C0322F3D947001366D2 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
