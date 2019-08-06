@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DestinationView.h"
+#import "Tools.h"
 
 @interface ViewController()<DragDropViewDelegate>
 
@@ -18,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //开机自动启动
+    [Tools setLaunchAgents:false];
     // Do any additional setup after loading the view.
     
 //    NSButton *button = [[NSButton alloc]initWithFrame:CGRectMake(80, 200, 200, 80)];

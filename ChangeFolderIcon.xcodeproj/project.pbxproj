@@ -10,6 +10,7 @@
 		576E3A2622E6A2E300CDA640 /* iTermServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E3A2522E6A2E300CDA640 /* iTermServiceProvider.m */; };
 		576E3A3122E6E72600CDA640 /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E3A3022E6E72600CDA640 /* FinderSync.m */; };
 		576E3A3622E6E72600CDA640 /* ChangeIconContextualMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		57A603C622F90DE000BB2811 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A603C522F90DE000BB2811 /* Tools.m */; };
 		57EA8BF922F3CFF3001366D2 /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA8BF822F3CFF3001366D2 /* FinderSync.m */; };
 		57EA8BFE22F3CFF3001366D2 /* ChangeIconQuickMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 57EA8BF522F3CFF3001366D2 /* ChangeIconQuickMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		57EA8C0322F3D947001366D2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA8C0222F3D947001366D2 /* Media.xcassets */; };
@@ -62,6 +63,8 @@
 		576E3A3022E6E72600CDA640 /* FinderSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinderSync.m; sourceTree = "<group>"; };
 		576E3A3222E6E72600CDA640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		576E3A3322E6E72600CDA640 /* ChangeIconContextualMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeIconContextualMenu.entitlements; sourceTree = "<group>"; };
+		57A603C422F90DE000BB2811 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		57A603C522F90DE000BB2811 /* Tools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 		57EA8BF522F3CFF3001366D2 /* ChangeIconQuickMenu.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ChangeIconQuickMenu.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EA8BF722F3CFF3001366D2 /* FinderSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinderSync.h; sourceTree = "<group>"; };
 		57EA8BF822F3CFF3001366D2 /* FinderSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinderSync.m; sourceTree = "<group>"; };
@@ -129,6 +132,15 @@
 			path = ChangeIconContextualMenu;
 			sourceTree = "<group>";
 		};
+		57A603C322F90DB400BB2811 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				57A603C422F90DE000BB2811 /* Tools.h */,
+				57A603C522F90DE000BB2811 /* Tools.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		57EA8BF622F3CFF3001366D2 /* ChangeIconQuickMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +176,7 @@
 		C3330E8622E550D800FD7475 /* ChangeFolderIcon */ = {
 			isa = PBXGroup;
 			children = (
+				57A603C322F90DB400BB2811 /* Tools */,
 				576E3A2322E6A2E300CDA640 /* Services */,
 				C339449222E5C3F2004A9274 /* View */,
 				C3330E8722E550D800FD7475 /* AppDelegate.h */,
@@ -352,6 +365,7 @@
 				C3330E8C22E550D800FD7475 /* ViewController.m in Sources */,
 				C339449122E5C3EB004A9274 /* DestinationView.m in Sources */,
 				C3330E9422E550DA00FD7475 /* main.m in Sources */,
+				57A603C622F90DE000BB2811 /* Tools.m in Sources */,
 				576E3A2622E6A2E300CDA640 /* iTermServiceProvider.m in Sources */,
 				C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */,
 			);
