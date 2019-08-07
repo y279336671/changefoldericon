@@ -21,6 +21,7 @@
 		C3330E9422E550DA00FD7475 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E9322E550DA00FD7475 /* main.m */; };
 		C33718FF22EAA9DC000BE58C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33718FE22EAA9DC000BE58C /* Media.xcassets */; };
 		C339449122E5C3EB004A9274 /* DestinationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C339449022E5C3EB004A9274 /* DestinationView.m */; };
+		C3A564EF22FA6D4400588F37 /* DragViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A564EE22FA6D4400588F37 /* DragViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		C33718FE22EAA9DC000BE58C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C339448F22E5C3EB004A9274 /* DestinationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DestinationView.h; sourceTree = "<group>"; };
 		C339449022E5C3EB004A9274 /* DestinationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DestinationView.m; sourceTree = "<group>"; };
+		C3A564ED22FA6D4400588F37 /* DragViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragViewController.h; sourceTree = "<group>"; };
+		C3A564EE22FA6D4400588F37 /* DragViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 				C3330E8822E550D800FD7475 /* AppDelegate.m */,
 				C3330E8A22E550D800FD7475 /* ViewController.h */,
 				C3330E8B22E550D800FD7475 /* ViewController.m */,
+				C3A564ED22FA6D4400588F37 /* DragViewController.h */,
+				C3A564EE22FA6D4400588F37 /* DragViewController.m */,
 				C3330E8D22E550D900FD7475 /* Assets.xcassets */,
 				C3330E8F22E550DA00FD7475 /* Main.storyboard */,
 				C3330E9222E550DA00FD7475 /* Info.plist */,
@@ -368,6 +373,7 @@
 				57A603C622F90DE000BB2811 /* Tools.m in Sources */,
 				576E3A2622E6A2E300CDA640 /* iTermServiceProvider.m in Sources */,
 				C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */,
+				C3A564EF22FA6D4400588F37 /* DragViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
