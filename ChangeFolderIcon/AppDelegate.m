@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "iTermServiceProvider.h"
+
 #import "Tools.h"
 #import "MyWindow.h"
 #import "MainViewController.h"
