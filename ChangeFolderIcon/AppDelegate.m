@@ -11,7 +11,7 @@
 #import "Tools.h"
 #import "MyWindow.h"
 #import "MainViewController.h"
-@interface AppDelegate () <NSApplicationDelegate>
+@interface AppDelegate () <NSApplicationDelegate,NSMenuDelegate>
 @property (nonatomic,strong) NSStatusItem *statusItem;
 @end
 
@@ -51,7 +51,16 @@
     [subMenu addItemWithTitle:[NSString stringWithFormat:@"退出%@",appName] action:@selector(exitApp) keyEquivalent:@""];
 
     self.statusItem.menu = subMenu;
-    //todo  第一次点击显示程序主界面 第二次显示菜单
+    self.statusItem.menu.delegate = self;
+   
+}
+
+- (void)menuWillOpen:(NSMenu *)menu{
+     //todo  第一次点击显示程序主界面 第二次显示菜单
+}
+
+- (void)menu:(NSMenu *)menu willHighlightItem:(nullable NSMenuItem *)item{
+   
 }
 
 //显示主界面
