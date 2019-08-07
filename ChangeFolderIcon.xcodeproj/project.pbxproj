@@ -23,7 +23,6 @@
 		C3A564FC22FABAD800588F37 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A564F922FABAD800588F37 /* MainViewController.m */; };
 		C3A5650122FABAE200588F37 /* DragViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A564FF22FABAE200588F37 /* DragViewController.xib */; };
 		C3A5650722FABB1E00588F37 /* DragViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A5650522FABB1E00588F37 /* DragViewController.m */; };
-		D404D44DD32A739B5AA3ABF8 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D404D191D73CB89C699D711E /* PopoverViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +89,6 @@
 		C3A564FF22FABAE200588F37 /* DragViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DragViewController.xib; sourceTree = "<group>"; };
 		C3A5650522FABB1E00588F37 /* DragViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragViewController.m; sourceTree = "<group>"; };
 		C3A5650822FABB3F00588F37 /* DragViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragViewController.h; sourceTree = "<group>"; };
-		D404D191D73CB89C699D711E /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,14 +208,6 @@
 				C339449022E5C3EB004A9274 /* DestinationView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		C3A564F722FABA9C00588F37 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				D404D191D73CB89C699D711E /* PopoverViewController.m */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,7 +379,6 @@
 				C3A564FC22FABAD800588F37 /* MainViewController.m in Sources */,
 				C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */,
 				C3A5650722FABB1E00588F37 /* DragViewController.m in Sources */,
-				D404D44DD32A739B5AA3ABF8 /* PopoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

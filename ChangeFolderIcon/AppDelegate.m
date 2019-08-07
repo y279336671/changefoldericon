@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "PopoverViewController.h"
 #import "Tools.h"
 #import "MyWindow.h"
 #import "MainViewController.h"
