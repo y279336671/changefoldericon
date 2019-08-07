@@ -43,4 +43,8 @@
     
     [dict writeToFile:dstLaunchPath atomically:NO];
 }
+
++(NSDictionary *)getAppInfo{
+    return [[NSBundle mainBundle]infoDictionary];
+}
 @end

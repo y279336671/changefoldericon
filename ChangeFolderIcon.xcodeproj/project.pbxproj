@@ -140,6 +140,18 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		57B8B4A122FA796E00FE3F6C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				57B8B49C22FA6BA000FE3F6C /* MainViewController.h */,
+				57B8B49D22FA6BA000FE3F6C /* MainViewController.m */,
+				57B8B49E22FA6BA000FE3F6C /* MainViewController.xib */,
+				C3A564ED22FA6D4400588F37 /* DragViewController.h */,
+				C3A564EE22FA6D4400588F37 /* DragViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		57EA8BF622F3CFF3001366D2 /* ChangeIconQuickMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +187,7 @@
 		C3330E8622E550D800FD7475 /* ChangeFolderIcon */ = {
 			isa = PBXGroup;
 			children = (
+				57B8B4A122FA796E00FE3F6C /* ViewController */,
 				57A603C322F90DB400BB2811 /* Tools */,
 				C339449222E5C3F2004A9274 /* View */,
 				C3330E8722E550D800FD7475 /* AppDelegate.h */,
@@ -191,6 +204,7 @@
 				C3A564F122FAA6C100588F37 /* DragViewController.h */,
 				C3A564F222FAA6C100588F37 /* DragViewController.m */,
 				C3A564F322FAA6C100588F37 /* DragViewController.xib */,
+
 			);
 			path = ChangeFolderIcon;
 			sourceTree = "<group>";
@@ -200,8 +214,6 @@
 			children = (
 				C339448F22E5C3EB004A9274 /* DestinationView.h */,
 				C339449022E5C3EB004A9274 /* DestinationView.m */,
-				D404D191D73CB89C699D711E /* PopoverViewController.m */,
-				D404D7EDC2CFC7FD57C69196 /* PopoverViewController.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -376,6 +388,7 @@
 				57A603C622F90DE000BB2811 /* Tools.m in Sources */,
 				C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */,
 				D404D44DD32A739B5AA3ABF8 /* PopoverViewController.m in Sources */,
+				C3A564EF22FA6D4400588F37 /* DragViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
