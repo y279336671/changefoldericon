@@ -126,7 +126,6 @@ typedef void (^URLActionBlock)(NSURL * obj, NSUInteger idx, BOOL *stop);
     return menu;
 }
 
-
 - (void)changeIcon:(NSURL *)pathUrl withImage:(NSString *)imageName
 {
     NSString *path = [pathUrl path];
