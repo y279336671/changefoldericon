@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "iTermServiceProvider.h"
 #import "PopoverViewController.h"
 #import "MyWindow.h"
 #import "MainViewController.h"
@@ -22,29 +21,9 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self addStatusItem];
    
-    /* 以下为右键服务的功能
-//    [NSApp registerServicesMenuSendTypes:[NSArray arrayWithObjects:NSPasteboardTypeString, nil]
-//                             returnTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, NSStringPboardType, nil]];
+    [self openApp];
 
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [NSApp setServicesProvider:[[iTermServiceProvider alloc] init]];
-//    });
-    */
 }
-
-//- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender
-//                    hasVisibleWindows:(BOOL)flag{
-//    
-//    self.homeViewController = [[DDHomeViewController alloc]
-//                               initWithWindowNibName:@"DDHomeViewController"];
-//    
-//    [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-//    
-//    [self.homeViewController showWindow:nil];
-//    
-//    return YES;
-//    
-//}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
@@ -85,12 +64,11 @@
 
 //显示主界面
 -(void)openApp{
-    NSWindow *window = [[MyWindow alloc] initWithContentRect:NSMakeRect(50, 100, 200, 300)styleMask:NSWindowStyleMaskBorderless|NSWindowStyleMaskTitled|NSWindowStyleMaskClosable|NSWindowStyleMaskMiniaturizable|NSWindowStyleMaskResizable backing:NSBackingStoreBuffered defer:YES];
+    NSWindow *window = [[MyWindow alloc] initWithContentRect:NSMakeRect(50, 100, 200, 300)styleMask:NSWindowStyleMaskBorderless|NSWindowStyleMaskTitled|NSWindowStyleMaskClosable|NSWindowStyleMaskMiniaturizable backing:NSBackingStoreBuffered defer:YES];
     
     window.contentViewController = [[MainViewController alloc]init];
     [window setTitle:@"test1"];
     [window makeKeyAndOrderFront:nil];
-    
     [self bringToFront];
 }
 
