@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Tools : NSObject
 +(void)setLaunchAgents:(BOOL)isAuto;
++(NSDictionary *)getAppInfo;
 @end
 
 NS_ASSUME_NONNULL_END

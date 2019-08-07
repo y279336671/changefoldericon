@@ -8,46 +8,22 @@
 
 #import "AppDelegate.h"
 #import "iTermServiceProvider.h"
-#import "PopoverViewController.h"
+#import "Tools.h"
 #import "MyWindow.h"
 #import "MainViewController.h"
 @interface AppDelegate () <NSApplicationDelegate>
 @property (nonatomic,strong) NSStatusItem *statusItem;
-//@property(nonatomic,strong) NSPopover *firstPopover;
-//@property(nonatomic,strong) PopoverViewController *popoverVC;
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self addStatusItem];
-   
-    /* 以下为右键服务的功能
-//    [NSApp registerServicesMenuSendTypes:[NSArray arrayWithObjects:NSPasteboardTypeString, nil]
-//                             returnTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, NSStringPboardType, nil]];
 
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [NSApp setServicesProvider:[[iTermServiceProvider alloc] init]];
-//    });
-    */
 }
 
-//- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender
-//                    hasVisibleWindows:(BOOL)flag{
-//    
-//    self.homeViewController = [[DDHomeViewController alloc]
-//                               initWithWindowNibName:@"DDHomeViewController"];
-//    
-//    [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-//    
-//    [self.homeViewController showWindow:nil];
-//    
-//    return YES;
-//    
-//}
-
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+   
 }
 
 - (void)addStatusItem {
@@ -66,21 +42,16 @@
 
     button.target = self;
 
-    button.action = @selector(handleButtonClick:);
+//    button.action = @selector(handleButtonClick:);
 
+    NSString *appName = [[Tools getAppInfo]objectForKey:@"CFBundleName"];
+    
     NSMenu *subMenu = [[NSMenu alloc] initWithTitle:@""];
-
-    [subMenu addItemWithTitle:@"打开Fier"action:@selector(openApp) keyEquivalent:@""];
-    [subMenu addItemWithTitle:@"退出Fier"action:@selector(exitApp) keyEquivalent:@""];
+    [subMenu addItemWithTitle:[NSString stringWithFormat:@"打开%@",appName] action:@selector(openApp) keyEquivalent:@""];
+    [subMenu addItemWithTitle:[NSString stringWithFormat:@"退出%@",appName] action:@selector(exitApp) keyEquivalent:@""];
 
     self.statusItem.menu = subMenu;
     //todo  第一次点击显示程序主界面 第二次显示菜单
-}
-
-//点击statusitem
-- (void)handleButtonClick:(NSButton *)btn
-{
- //    [self.firstPopover showRelativeToRect:[btn bounds] ofView:btn preferredEdge:NSRectEdgeMaxY];
 }
 
 //显示主界面
@@ -101,7 +72,7 @@
 
 //应用显示在最前面
 -(void)bringToFront{
-    NSString *bundleId = [[[NSBundle mainBundle]infoDictionary]objectForKey:@"CFBundleIdentifier"];
+    NSString *bundleId =[[Tools getAppInfo]objectForKey:@"CFBundleIdentifier"];
     NSArray *array = [NSRunningApplication runningApplicationsWithBundleIdentifier:bundleId];
     if ([array count] > 0)
     {
