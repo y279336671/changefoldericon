@@ -1,39 +1,33 @@
 //
-//  ViewController.m
+//  MainViewController.m
 //  ChangeFolderIcon
 //
-//  Created by meiqing on 2019/7/22.
+//  Created by 杨贺 on 2019/8/7.
 //  Copyright © 2019 meiqing. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "DestinationView.h"
 #import "Tools.h"
-
-@interface ViewController()<DragDropViewDelegate>
+@interface MainViewController ()<DragDropViewDelegate>
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //开机自动启动
-    [Tools setLaunchAgents:false];
-    // Do any additional setup after loading the view.
     
-//    NSButton *button = [[NSButton alloc]initWithFrame:CGRectMake(80, 200, 200, 80)];
-//    [button setTitle:@"make changed"];
-//    [button setAction:@selector(changeIconClick)];
-//    [self.view addSubview:button];
+    //开机自动启动
+//    [Tools setLaunchAgents:false];
+
     
     
     DestinationView *dView = [[DestinationView alloc]initWithFrame:CGRectMake(0, 0, 500, 500)];
     dView.delegate = self;
     [self.view addSubview:dView];
     
-//    NSString *observedObject = @"com.changeIcon.shareData";
+    //    NSString *observedObject = @"com.changeIcon.shareData";
     // 处理Mac不同的进程之间的通知
     NSDistributedNotificationCenter *center =
     [NSDistributedNotificationCenter defaultCenter];
@@ -107,9 +101,8 @@
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
-
+    
     // Update the view, if already loaded.
 }
-
 
 @end

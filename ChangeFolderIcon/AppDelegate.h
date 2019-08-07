@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PopoverViewController;
+
 @interface AppDelegate : NSObject <NSApplicationDelegate>
-@property (nonatomic,strong) NSStatusItem *statusItem;
 
 @end
 
