@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		576E3A2622E6A2E300CDA640 /* iTermServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E3A2522E6A2E300CDA640 /* iTermServiceProvider.m */; };
 		576E3A3122E6E72600CDA640 /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E3A3022E6E72600CDA640 /* FinderSync.m */; };
 		576E3A3622E6E72600CDA640 /* ChangeIconContextualMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		57A603C622F90DE000BB2811 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A603C522F90DE000BB2811 /* Tools.m */; };
@@ -22,8 +21,8 @@
 		C3330E9422E550DA00FD7475 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E9322E550DA00FD7475 /* main.m */; };
 		C33718FF22EAA9DC000BE58C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33718FE22EAA9DC000BE58C /* Media.xcassets */; };
 		C339449122E5C3EB004A9274 /* DestinationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C339449022E5C3EB004A9274 /* DestinationView.m */; };
-		D404D44DD32A739B5AA3ABF8 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D404D191D73CB89C699D711E /* PopoverViewController.m */; };
 		C3A564EF22FA6D4400588F37 /* DragViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A564EE22FA6D4400588F37 /* DragViewController.m */; };
+		D404D44DD32A739B5AA3ABF8 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D404D191D73CB89C699D711E /* PopoverViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +58,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		576E3A2422E6A2E300CDA640 /* iTermServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTermServiceProvider.h; sourceTree = "<group>"; };
-		576E3A2522E6A2E300CDA640 /* iTermServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTermServiceProvider.m; sourceTree = "<group>"; };
 		576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ChangeIconContextualMenu.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		576E3A2F22E6E72600CDA640 /* FinderSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinderSync.h; sourceTree = "<group>"; };
 		576E3A3022E6E72600CDA640 /* FinderSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinderSync.m; sourceTree = "<group>"; };
@@ -89,10 +86,10 @@
 		C33718FE22EAA9DC000BE58C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C339448F22E5C3EB004A9274 /* DestinationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DestinationView.h; sourceTree = "<group>"; };
 		C339449022E5C3EB004A9274 /* DestinationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DestinationView.m; sourceTree = "<group>"; };
-		D404D191D73CB89C699D711E /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
-		D404D7EDC2CFC7FD57C69196 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 		C3A564ED22FA6D4400588F37 /* DragViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragViewController.h; sourceTree = "<group>"; };
 		C3A564EE22FA6D4400588F37 /* DragViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragViewController.m; sourceTree = "<group>"; };
+		D404D191D73CB89C699D711E /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
+		D404D7EDC2CFC7FD57C69196 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,15 +117,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		576E3A2322E6A2E300CDA640 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				576E3A2422E6A2E300CDA640 /* iTermServiceProvider.h */,
-				576E3A2522E6A2E300CDA640 /* iTermServiceProvider.m */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		576E3A2E22E6E72600CDA640 /* ChangeIconContextualMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,12 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				57A603C322F90DB400BB2811 /* Tools */,
-				576E3A2322E6A2E300CDA640 /* Services */,
 				C339449222E5C3F2004A9274 /* View */,
 				C3330E8722E550D800FD7475 /* AppDelegate.h */,
 				C3330E8822E550D800FD7475 /* AppDelegate.m */,
-				C3330E8A22E550D800FD7475 /* ViewController.h */,
-				C3330E8B22E550D800FD7475 /* ViewController.m */,
 				C3A564ED22FA6D4400588F37 /* DragViewController.h */,
 				C3A564EE22FA6D4400588F37 /* DragViewController.m */,
 				C3330E8D22E550D900FD7475 /* Assets.xcassets */,
@@ -384,7 +369,6 @@
 				57B8B49822FA669C00FE3F6C /* MyWindow.m in Sources */,
 				57B8B49F22FA6BA000FE3F6C /* MainViewController.m in Sources */,
 				57A603C622F90DE000BB2811 /* Tools.m in Sources */,
-				576E3A2622E6A2E300CDA640 /* iTermServiceProvider.m in Sources */,
 				C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */,
 				D404D44DD32A739B5AA3ABF8 /* PopoverViewController.m in Sources */,
 				C3A564EF22FA6D4400588F37 /* DragViewController.m in Sources */,
