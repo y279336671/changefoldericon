@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "AppDelegate.h"
 
 void notificationCallback (CFNotificationCenterRef center,
                            void * observer,
@@ -34,11 +34,14 @@ int main(int argc, const char * argv[]) {
                                     CFSTR("MyNotification"), NULL,
                                     CFNotificationSuspensionBehaviorDeliverImmediately);
 
-//    NSApplication *app = [NSApplication sharedApplication];
-//
-//    id delegate = [[AppDelegate alloc] init];
-//
-//    app.delegate = delegate;
+    
+
+    
+    NSApplication *app = [NSApplication sharedApplication];
+
+    id delegate = [[AppDelegate alloc] init];
+
+    app.delegate = delegate;
     
     // remove oberver
 //    CFNotificationCenterRemoveObserver(center, NULL, CFSTR("TestValue"), NULL);

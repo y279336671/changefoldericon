@@ -6,14 +6,14 @@
 //  Copyright © 2019 meiqing. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "Tools.h"
 
-@interface ViewController()
+@interface MainViewController()
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

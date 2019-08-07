@@ -11,16 +11,18 @@
 		576E3A3122E6E72600CDA640 /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E3A3022E6E72600CDA640 /* FinderSync.m */; };
 		576E3A3622E6E72600CDA640 /* ChangeIconContextualMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		57A603C622F90DE000BB2811 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A603C522F90DE000BB2811 /* Tools.m */; };
+		57B8B49822FA669C00FE3F6C /* MyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B8B49722FA669C00FE3F6C /* MyWindow.m */; };
+		57B8B49F22FA6BA000FE3F6C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B8B49D22FA6BA000FE3F6C /* MainViewController.m */; };
+		57B8B4A022FA6BA000FE3F6C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57B8B49E22FA6BA000FE3F6C /* MainViewController.xib */; };
 		57EA8BF922F3CFF3001366D2 /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 57EA8BF822F3CFF3001366D2 /* FinderSync.m */; };
 		57EA8BFE22F3CFF3001366D2 /* ChangeIconQuickMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 57EA8BF522F3CFF3001366D2 /* ChangeIconQuickMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		57EA8C0322F3D947001366D2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EA8C0222F3D947001366D2 /* Media.xcassets */; };
 		C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E8822E550D800FD7475 /* AppDelegate.m */; };
-		C3330E8C22E550D800FD7475 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E8B22E550D800FD7475 /* ViewController.m */; };
 		C3330E8E22E550D900FD7475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3330E8D22E550D900FD7475 /* Assets.xcassets */; };
-		C3330E9122E550DA00FD7475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3330E8F22E550DA00FD7475 /* Main.storyboard */; };
 		C3330E9422E550DA00FD7475 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3330E9322E550DA00FD7475 /* main.m */; };
 		C33718FF22EAA9DC000BE58C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33718FE22EAA9DC000BE58C /* Media.xcassets */; };
 		C339449122E5C3EB004A9274 /* DestinationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C339449022E5C3EB004A9274 /* DestinationView.m */; };
+		D404D44DD32A739B5AA3ABF8 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D404D191D73CB89C699D711E /* PopoverViewController.m */; };
 		C3A564EF22FA6D4400588F37 /* DragViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A564EE22FA6D4400588F37 /* DragViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,11 @@
 		576E3A3322E6E72600CDA640 /* ChangeIconContextualMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeIconContextualMenu.entitlements; sourceTree = "<group>"; };
 		57A603C422F90DE000BB2811 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 		57A603C522F90DE000BB2811 /* Tools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		57B8B49622FA669C00FE3F6C /* MyWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWindow.h; sourceTree = "<group>"; };
+		57B8B49722FA669C00FE3F6C /* MyWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWindow.m; sourceTree = "<group>"; };
+		57B8B49C22FA6BA000FE3F6C /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		57B8B49D22FA6BA000FE3F6C /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		57B8B49E22FA6BA000FE3F6C /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		57EA8BF522F3CFF3001366D2 /* ChangeIconQuickMenu.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ChangeIconQuickMenu.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EA8BF722F3CFF3001366D2 /* FinderSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinderSync.h; sourceTree = "<group>"; };
 		57EA8BF822F3CFF3001366D2 /* FinderSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinderSync.m; sourceTree = "<group>"; };
@@ -75,16 +82,15 @@
 		C3330E8422E550D800FD7475 /* ChangeFolderIcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeFolderIcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3330E8722E550D800FD7475 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3330E8822E550D800FD7475 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C3330E8A22E550D800FD7475 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C3330E8B22E550D800FD7475 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C3330E8D22E550D900FD7475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C3330E9022E550DA00FD7475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3330E9222E550DA00FD7475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3330E9322E550DA00FD7475 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3330E9522E550DA00FD7475 /* ChangeFolderIcon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeFolderIcon.entitlements; sourceTree = "<group>"; };
 		C33718FE22EAA9DC000BE58C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C339448F22E5C3EB004A9274 /* DestinationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DestinationView.h; sourceTree = "<group>"; };
 		C339449022E5C3EB004A9274 /* DestinationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DestinationView.m; sourceTree = "<group>"; };
+		D404D191D73CB89C699D711E /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
+		D404D7EDC2CFC7FD57C69196 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 		C3A564ED22FA6D4400588F37 /* DragViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragViewController.h; sourceTree = "<group>"; };
 		C3A564EE22FA6D4400588F37 /* DragViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,10 +195,14 @@
 				C3A564ED22FA6D4400588F37 /* DragViewController.h */,
 				C3A564EE22FA6D4400588F37 /* DragViewController.m */,
 				C3330E8D22E550D900FD7475 /* Assets.xcassets */,
-				C3330E8F22E550DA00FD7475 /* Main.storyboard */,
 				C3330E9222E550DA00FD7475 /* Info.plist */,
 				C3330E9322E550DA00FD7475 /* main.m */,
 				C3330E9522E550DA00FD7475 /* ChangeFolderIcon.entitlements */,
+				57B8B49622FA669C00FE3F6C /* MyWindow.h */,
+				57B8B49722FA669C00FE3F6C /* MyWindow.m */,
+				57B8B49C22FA6BA000FE3F6C /* MainViewController.h */,
+				57B8B49D22FA6BA000FE3F6C /* MainViewController.m */,
+				57B8B49E22FA6BA000FE3F6C /* MainViewController.xib */,
 			);
 			path = ChangeFolderIcon;
 			sourceTree = "<group>";
@@ -202,6 +212,8 @@
 			children = (
 				C339448F22E5C3EB004A9274 /* DestinationView.h */,
 				C339449022E5C3EB004A9274 /* DestinationView.m */,
+				D404D191D73CB89C699D711E /* PopoverViewController.m */,
+				D404D7EDC2CFC7FD57C69196 /* PopoverViewController.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,7 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3330E8E22E550D900FD7475 /* Assets.xcassets in Resources */,
-				C3330E9122E550DA00FD7475 /* Main.storyboard in Resources */,
+				57B8B4A022FA6BA000FE3F6C /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,12 +379,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3330E8C22E550D800FD7475 /* ViewController.m in Sources */,
 				C339449122E5C3EB004A9274 /* DestinationView.m in Sources */,
 				C3330E9422E550DA00FD7475 /* main.m in Sources */,
+				57B8B49822FA669C00FE3F6C /* MyWindow.m in Sources */,
+				57B8B49F22FA6BA000FE3F6C /* MainViewController.m in Sources */,
 				57A603C622F90DE000BB2811 /* Tools.m in Sources */,
 				576E3A2622E6A2E300CDA640 /* iTermServiceProvider.m in Sources */,
 				C3330E8922E550D800FD7475 /* AppDelegate.m in Sources */,
+				D404D44DD32A739B5AA3ABF8 /* PopoverViewController.m in Sources */,
 				C3A564EF22FA6D4400588F37 /* DragViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,17 +405,6 @@
 			targetProxy = 57EA8BFC22F3CFF3001366D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		C3330E8F22E550DA00FD7475 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C3330E9022E550DA00FD7475 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		576E3A3722E6E72600CDA640 /* Debug */ = {
