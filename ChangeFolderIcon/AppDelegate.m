@@ -13,7 +13,6 @@
 
 @interface AppDelegate () <NSApplicationDelegate, NSMenuDelegate>
 @property(nonatomic, strong) NSStatusItem *statusItem;
-@property (nonatomic, strong)NSWindow *window;
 @end
 
 @implementation AppDelegate
@@ -128,5 +127,10 @@
         NSRunningApplication *runningApp = [array objectAtIndex:0];
         [runningApp activateWithOptions:NSApplicationActivateIgnoringOtherApps];
     }
+}
+
++ (AppDelegate *)appDelegate
+{
+    return (AppDelegate *)[NSApplication sharedApplication].delegate;
 }
 @end
