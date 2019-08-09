@@ -37,8 +37,8 @@
     alert.alertStyle = NSAlertStyleWarning;
     [alert addButtonWithTitle:@"确定"];
     [alert addButtonWithTitle:@"取消"];
-    alert.messageText = @"提示";
-    alert.informativeText = @"为了更方便使用右键修改功能，请先前往设置-扩展勾选ChangeIconQuickMenu";
+    alert.messageText = @"为了更方便使用右键修改功能，请先前往设置-扩展勾选ChangeFolderIcon里的扩展";
+    alert.informativeText = @"";
     
     [alert beginSheetModalForWindow:[AppDelegate appDelegate].window completionHandler:^(NSModalResponse returnCode) {
         //        NSLog(@"%d", returnCode);
