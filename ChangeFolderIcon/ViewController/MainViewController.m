@@ -33,26 +33,29 @@
 
 - (void)openAlert{
     
+    BOOL hasShowAlert = [[NSUserDefaults standardUserDefaults]boolForKey:@"khasShowAlert"];
+    if (hasShowAlert) {
+        return;
+    }
+    
     NSAlert *alert = [[NSAlert alloc] init];
     alert.alertStyle = NSAlertStyleWarning;
     [alert addButtonWithTitle:@"确定"];
-    [alert addButtonWithTitle:@"取消"];
     alert.messageText = @"为了更方便使用右键修改功能，请先前往设置-扩展勾选ChangeFolderIcon里的扩展";
     alert.informativeText = @"";
     
     [alert beginSheetModalForWindow:[AppDelegate appDelegate].window completionHandler:^(NSModalResponse returnCode) {
-        //        NSLog(@"%d", returnCode);
         if (returnCode == NSAlertFirstButtonReturn) {
             NSLog(@"确定");
             
             [[NSWorkspace sharedWorkspace] openFile:@"/System/Library/PreferencePanes/Extensions.prefPane"];
             
-        } else if (returnCode == NSAlertSecondButtonReturn) {
-            NSLog(@"取消");
-        } else {
-            NSLog(@"其他按钮");
         }
     }];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"khasShowAlert"];
+    [defaults synchronize];
 }
 
 - (void)btnClick
@@ -60,6 +63,5 @@
     DragViewController *dvc = [[DragViewController alloc]init];
     [self presentViewControllerAsSheet:dvc];
 }
-
 
 @end
