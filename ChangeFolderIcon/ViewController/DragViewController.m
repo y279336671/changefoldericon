@@ -28,20 +28,6 @@
     self.dView.delegate = self;
     [self.view addSubview:self.dView];
     
-    //    NSString *observedObject = @"com.changeIcon.shareData";
-    // 处理Mac不同的进程之间的通知
-    NSDistributedNotificationCenter *center =
-    [NSDistributedNotificationCenter defaultCenter];
-    [center addObserver: self
-               selector: @selector(callbackWithNotification:)
-                   name: @"PiaoYun Notification"
-                 object: nil];
-    [center addObserver: self
-               selector: @selector(callbackWithNotification:)
-                   name: @"PiaoYun Notification1"
-                 object: nil];
-    
-    
     [self.dView addSubview:self.statusLabel];
     self.statusLabel.hidden = NO;
 }
@@ -77,17 +63,6 @@
     
     [self.view addSubview:label0];
    
-}
-
-//回调：
-- (void)callbackWithNotification:(NSNotification *)myNotification;
-{
-    NSLog(@"Notification Received");
-    NSString *str = (NSString *)myNotification.object;
-    NSArray *array = [str componentsSeparatedByString:@";"];
-    NSString *path = array[0];
-    NSString *imageName = array[1];
-    [self changeIcon:path withImageName:imageName];
 }
 
 /***

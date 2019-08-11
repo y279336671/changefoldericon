@@ -27,8 +27,41 @@
     //所有活跃应用
 //    NSArray* arrayAppList = [[NSWorkspace sharedWorkspace] runningApplications];
 
+    // 处理Mac不同的进程之间的通知
+    NSDistributedNotificationCenter *center =
+    [NSDistributedNotificationCenter defaultCenter];
+    [center addObserver: self
+               selector: @selector(callbackWithNotification:)
+                   name: @"PiaoYun Notification"
+                 object: nil];
+    [center addObserver: self
+               selector: @selector(callbackWithNotification:)
+                   name: @"PiaoYun Notification1"
+                 object: nil];
 }
 
+//回调：
+- (void)callbackWithNotification:(NSNotification *)myNotification;
+{
+    NSLog(@"Notification Received");
+    NSString *str = (NSString *)myNotification.object;
+    NSArray *array = [str componentsSeparatedByString:@";"];
+    NSString *path = array[0];
+    NSString *imageName = array[1];
+    [self changeIcon:path withImageName:imageName];
+}
+
+- (void)changeIcon:(NSString *)path withImageName:(NSString *)iamgeaName
+{
+    NSWorkspace *workSpace = [NSWorkspace sharedWorkspace];
+    [workSpace setIcon:nil forFile:path options:NSExcludeQuickDrawElementsIconCreationOption];
+    NSImage *image = [NSImage imageNamed:iamgeaName];
+    BOOL success = [workSpace setIcon:image forFile:path options:NSExcludeQuickDrawElementsIconCreationOption];
+    if (success) {
+       
+        NSLog(@"修改成功");
+    }
+}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
 
