@@ -29,16 +29,17 @@
 //    for (NSView *subview in self.containerView.subviews) {
 //        [subview removeFromSuperview];
 //    }
-    
+    //todo  滚不了
     switch (type) {
         case 0:
             {
-                for (NSInteger i = 0; i < 5; i ++) {
+                for (NSInteger i = 0; i < 50; i ++) {
                     NSButton *btn = [NSButton buttonWithTitle:@"" target:self action:@selector(btnClick)];
                     btn.frame = CGRectMake(70*i + 20, 0, 50, 50);
                     btn.wantsLayer = YES;
                     btn.layer.backgroundColor = [NSColor redColor].CGColor;
-                    [self.containerView addSubview:btn];
+                    [self.containerView.contentView addSubview:btn];
+
                 }
             }
             break;
@@ -49,7 +50,7 @@
                     btn.frame = CGRectMake(70*i + 20, 0, 50, 50);
                     btn.wantsLayer = YES;
                     btn.layer.backgroundColor = [NSColor greenColor].CGColor;
-                    [self.containerView addSubview:btn];
+                    [self.containerView.contentView addSubview:btn];
                 }
             }
             break;
@@ -60,7 +61,7 @@
                     btn.frame = CGRectMake(70*i + 20, 0, 50, 50);
                     btn.wantsLayer = YES;
                     btn.layer.backgroundColor = [NSColor blueColor].CGColor;
-                    [self.containerView addSubview:btn];
+                    [self.containerView.contentView addSubview:btn];
                 }
             }
             break;
@@ -71,22 +72,21 @@
                     btn.frame = CGRectMake(70*i + 20, 0, 50, 50);
                     btn.wantsLayer = YES;
                     btn.layer.backgroundColor = [NSColor blackColor].CGColor;
-                    [self.containerView addSubview:btn];
+                    [self.containerView.contentView addSubview:btn];
                 }
             }
             break;
         default:
             break;
     }
-    
-    
-
 }
 
-- (NSView *)containerView
+- (NSScrollView *)containerView
 {
     if (_containerView == nil) {
-        _containerView = [[NSView alloc]initWithFrame:CGRectMake(0, 80, self.frame.size.width, 50)];
+
+        _containerView = [[NSScrollView alloc]initWithFrame:CGRectMake(0, 80, self.frame.size.width, 50)];
+        [_containerView setContentView:[[NSClipView alloc] initWithFrame:NSMakeRect(0, 0, 1000, 50)]];
     }
     return _containerView;
 }
