@@ -10,9 +10,14 @@
 #import "Tools.h"
 #import "DragViewController.h"
 #import "AppDelegate.h"
+#import "RightList.h"
+#import "TopView.h"
+#import "BottomView.h"
 
 @interface MainViewController()
-
+@property (nonatomic, strong)RightList *rightList;
+@property (nonatomic, strong)TopView *topView;
+@property (nonatomic, strong)BottomView *bottomView;
 @end
 
 @implementation MainViewController
@@ -24,6 +29,10 @@
     [Tools setLaunchAgents:false];
     
     [self openAlert];
+    
+    [self.view addSubview:self.rightList];
+    [self.view addSubview:self.topView];
+    [self.view addSubview:self.bottomView];
     
     NSButton *btn = [NSButton buttonWithTitle:@"选择文件" target:self action:@selector(btnClick)];
     btn.layer.backgroundColor = [NSColor yellowColor].CGColor;
@@ -62,6 +71,35 @@
 {
     DragViewController *dvc = [[DragViewController alloc]init];
     [self presentViewControllerAsSheet:dvc];
+}
+
+- (BottomView *)bottomView
+{
+    if(_bottomView == nil) {
+        _bottomView = [[BottomView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 80, 200)];
+        _bottomView.wantsLayer = YES;
+        _bottomView.layer.backgroundColor = [NSColor yellowColor].CGColor;
+    }
+    return _bottomView;
+
+}
+
+- (TopView *)topView
+{
+    if(_topView == nil){
+        _topView = [[TopView alloc]initWithFrame:CGRectMake(0, 200, self.view.frame.size.width - 80, self.view.frame.size.height - 200)];
+        _topView.wantsLayer = YES;
+        _topView.layer.backgroundColor = [NSColor redColor].CGColor;
+    }
+    return _topView;
+}
+
+- (RightList *)rightList
+{
+    if (_rightList == nil) {
+        _rightList = [[RightList alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 80, 0, 80, self.view.frame.size.height)];
+    }
+    return _rightList;
 }
 
 @end

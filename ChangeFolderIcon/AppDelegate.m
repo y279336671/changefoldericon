@@ -21,7 +21,7 @@
 
     self.window = [[MyWindow alloc] initWithContentRect:NSMakeRect(50, 100, 200, 300) styleMask:NSWindowStyleMaskBorderless | NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable backing:NSBackingStoreBuffered defer:YES];
     self.window.contentViewController = [[MainViewController alloc] init];
-    [self.window setTitle:@"test1"];
+    [self.window setTitle:@"ChangeFolderIcon"];
 
     [self addStatusItem];
     //所有活跃应用
@@ -38,6 +38,8 @@
                selector: @selector(callbackWithNotification:)
                    name: @"PiaoYun Notification1"
                  object: nil];
+    
+    [self openApp];
 }
 
 //回调：
