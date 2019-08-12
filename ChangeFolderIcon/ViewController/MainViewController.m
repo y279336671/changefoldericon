@@ -14,7 +14,7 @@
 #import "TopView.h"
 #import "BottomView.h"
 
-@interface MainViewController()
+@interface MainViewController()<RightListDelegate>
 @property (nonatomic, strong)RightList *rightList;
 @property (nonatomic, strong)TopView *topView;
 @property (nonatomic, strong)BottomView *bottomView;
@@ -73,6 +73,11 @@
     [self presentViewControllerAsSheet:dvc];
 }
 
+- (void)rightListClickAt:(NSInteger)index
+{
+    [self.bottomView updateIcons:index];
+}
+
 - (BottomView *)bottomView
 {
     if(_bottomView == nil) {
@@ -98,6 +103,7 @@
 {
     if (_rightList == nil) {
         _rightList = [[RightList alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 80, 0, 80, self.view.frame.size.height)];
+        _rightList.delegate = self;
     }
     return _rightList;
 }

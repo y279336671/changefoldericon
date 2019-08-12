@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BottomView : NSView
-
+@property (nonatomic, strong)NSView *containerView;
+- (void)updateIcons:(NSInteger)type;
 @end
 
 NS_ASSUME_NONNULL_END
