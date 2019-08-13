@@ -1,8 +1,8 @@
 //
-//  TopView.h
+//  TopViewController.h
 //  ChangeFolderIcon
 //
-//  Created by meiqing on 2019/8/12.
+//  Created by meiqing on 2019/8/13.
 //  Copyright © 2019 meiqing. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TopView : NSView
+@interface TopViewController : NSViewController
 
 @end
 
