@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5749A8C82302575D00274B44 /* NSView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5749A8C62302575C00274B44 /* NSView+Extension.m */; };
 		576E3A3122E6E72600CDA640 /* FinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 576E3A3022E6E72600CDA640 /* FinderSync.m */; };
 		576E3A3622E6E72600CDA640 /* ChangeIconContextualMenu.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		57A603C622F90DE000BB2811 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A603C522F90DE000BB2811 /* Tools.m */; };
@@ -62,6 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5749A8C62302575C00274B44 /* NSView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Extension.m"; sourceTree = "<group>"; };
+		5749A8C72302575D00274B44 /* NSView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Extension.h"; sourceTree = "<group>"; };
+		5749A8C92302587700274B44 /* ChangeFolderIcon-Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChangeFolderIcon-Prefix.h"; sourceTree = "<group>"; };
 		576E3A2D22E6E72600CDA640 /* ChangeIconContextualMenu.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ChangeIconContextualMenu.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		576E3A2F22E6E72600CDA640 /* FinderSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinderSync.h; sourceTree = "<group>"; };
 		576E3A3022E6E72600CDA640 /* FinderSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinderSync.m; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 		57A603C322F90DB400BB2811 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5749A8C72302575D00274B44 /* NSView+Extension.h */,
+				5749A8C62302575C00274B44 /* NSView+Extension.m */,
 				57A603C422F90DE000BB2811 /* Tools.h */,
 				57A603C522F90DE000BB2811 /* Tools.m */,
 			);
@@ -208,6 +214,7 @@
 				C3330E9522E550DA00FD7475 /* ChangeFolderIcon.entitlements */,
 				57B8B49622FA669C00FE3F6C /* MyWindow.h */,
 				57B8B49722FA669C00FE3F6C /* MyWindow.m */,
+				5749A8C92302587700274B44 /* ChangeFolderIcon-Prefix.h */,
 			);
 			path = ChangeFolderIcon;
 			sourceTree = "<group>";
@@ -392,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C308DC892300FA3A00E99CB1 /* RightList.m in Sources */,
+				5749A8C82302575D00274B44 /* NSView+Extension.m in Sources */,
 				C339449122E5C3EB004A9274 /* DestinationView.m in Sources */,
 				C3330E9422E550DA00FD7475 /* main.m in Sources */,
 				57B8B49822FA669C00FE3F6C /* MyWindow.m in Sources */,
@@ -627,6 +635,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChangeFolderIcon/Source",
 				);
+				GCC_PREFIX_HEADER = "ChangeFolderIcon/ChangeFolderIcon-Prefix.h";
 				INFOPLIST_FILE = ChangeFolderIcon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -649,6 +658,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChangeFolderIcon/Source",
 				);
+				GCC_PREFIX_HEADER = "ChangeFolderIcon/ChangeFolderIcon-Prefix.h";
 				INFOPLIST_FILE = ChangeFolderIcon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
