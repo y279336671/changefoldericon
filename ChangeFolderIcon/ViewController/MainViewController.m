@@ -85,7 +85,7 @@
     if(_bottomView == nil) {
         _bottomView = [[BottomView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 80, 200)];
         _bottomView.wantsLayer = YES;
-        _bottomView.layer.backgroundColor = [NSColor yellowColor].CGColor;
+
     }
     return _bottomView;
 
