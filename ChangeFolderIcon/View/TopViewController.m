@@ -82,7 +82,7 @@
         NSImage *image = [NSImage imageNamed:name];
         if (image != nil) {
             // Scale down the image -- CoreAnimation doesn't like huge images
-            [image setSize:NSMakeSize([image size].width/2, [image size].height/2)];
+            [image setSize:NSMakeSize([image size].width, [image size].height)];
             NSDictionary *imageInfo = [NSDictionary dictionaryWithObjectsAndKeys:image, @"image", name, @"name", nil];
             [images addObject:imageInfo];
         }
