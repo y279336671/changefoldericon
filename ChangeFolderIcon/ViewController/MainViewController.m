@@ -17,6 +17,7 @@
 @interface MainViewController()<RightListDelegate>
 @property (nonatomic, strong)RightList *rightList;
 @property (nonatomic, strong)BottomView *bottomView;
+@property (nonatomic, strong)TopViewController *topVC;
 @end
 
 @implementation MainViewController
@@ -32,9 +33,9 @@
     [self.view addSubview:self.rightList];
     [self.view addSubview:self.bottomView];
     
-    TopViewController *vc = [[TopViewController alloc]init];
-    vc.view.frame = CGRectMake(0, 200, self.view.frame.size.width - 80, self.view.frame.size.height - 200);
-    [self.view addSubview:vc.view];
+    self.topVC = [[TopViewController alloc]init];
+    self.topVC.view.frame = CGRectMake(0, 200, self.view.frame.size.width - 80, self.view.frame.size.height - 200);
+    [self.view addSubview:self.topVC.view];
     
     NSButton *btn = [NSButton buttonWithTitle:@"选择文件" target:self action:@selector(btnClick)];
     btn.layer.backgroundColor = [NSColor yellowColor].CGColor;
@@ -78,6 +79,7 @@
 - (void)rightListClickAt:(NSInteger)index
 {
     [self.bottomView updateIcons:index];
+    [self.topVC scrolltoIndex:index];
 }
 
 - (BottomView *)bottomView

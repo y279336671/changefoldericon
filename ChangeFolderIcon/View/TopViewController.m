@@ -12,7 +12,7 @@
 
 
 @interface TopViewController ()
-
+@property (nonatomic, strong) MBCoverFlowView *flowView;
 @end
 
 @implementation TopViewController
@@ -22,30 +22,12 @@
     // Do view setup here.
     
     
-    MBCoverFlowView *flowView = [[MBCoverFlowView alloc]initWithFrame:self.view.bounds];
-    self.view = flowView;
+    MBCoverFlowView *flowView = [[MBCoverFlowView alloc]initWithFrame:CGRectMake(0, 0, 400, 200)];
+    [self.view addSubview:flowView];
+    self.flowView = flowView;
     
-    NSViewController *labelViewController = [[NSViewController alloc] initWithNibName:nil bundle:nil];
-    NSTextField *label = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 10, 10)];
-    [label setBordered:NO];
-    [label setBezeled:NO];
-    [label setEditable:NO];
-    [label setSelectable:NO];
-    [label setDrawsBackground:NO];
-    [label setTextColor:[NSColor whiteColor]];
-    [label setFont:[NSFont boldSystemFontOfSize:12.0]];
-    [label setAutoresizingMask:NSViewWidthSizable];
-    [label setAlignment:NSTextAlignmentCenter];
-    [label sizeToFit];
-    NSRect labelFrame = [label frame];
-    labelFrame.size.width = 400;
-    [label setFrame:labelFrame];
-    [labelViewController setView:label];
-    [label bind:@"value" toObject:labelViewController withKeyPath:@"representedObject.name" options:nil];
-    [(MBCoverFlowView *)self.view setAccessoryController:labelViewController];
-    
-    [(MBCoverFlowView *)self.view setImageKeyPath:@"image"];
-    [(MBCoverFlowView *)self.view setShowsScrollbar:YES];
+    [self.flowView setImageKeyPath:@"image"];
+    [self.flowView setShowsScrollbar:YES];
     
     [NSThread detachNewThreadSelector:@selector(loadImages) toTarget:self withObject:nil];
 }
@@ -73,25 +55,31 @@
 //        count++;
 //    }
     
-    
-    
     int count = 1;
-    while (count < 10)
+    while (count < 15)
     {
-        NSString *name = [NSString stringWithFormat:@"e%d",count];
+        NSString *name = [NSString stringWithFormat:@"%d",count];
         NSImage *image = [NSImage imageNamed:name];
         if (image != nil) {
             // Scale down the image -- CoreAnimation doesn't like huge images
-            [image setSize:NSMakeSize([image size].width, [image size].height)];
-            NSDictionary *imageInfo = [NSDictionary dictionaryWithObjectsAndKeys:image, @"image", name, @"name", nil];
+            [image setSize:NSMakeSize(100, 75)];
+            NSDictionary *imageInfo = [NSDictionary dictionaryWithObjectsAndKeys:image, @"image", @"", @"name", nil];
             [images addObject:imageInfo];
         }
         
-        [(MBCoverFlowView *)self.view performSelectorOnMainThread:@selector(setContent:) withObject:images waitUntilDone:NO];
+        [self.flowView performSelectorOnMainThread:@selector(setContent:) withObject:images waitUntilDone:NO];
         
         count++;
     }
-    
+}
+
+- (void)scrolltoIndex:(NSInteger)index
+{
+    self.flowView.selectionIndex = index;
+}
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
     
 }
 @end
