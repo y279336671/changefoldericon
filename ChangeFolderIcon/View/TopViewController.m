@@ -56,9 +56,9 @@
 //    }
     
     int count = 1;
-    while (count < 10)
+    while (count < 15)
     {
-        NSString *name = [NSString stringWithFormat:@"e%d",count];
+        NSString *name = [NSString stringWithFormat:@"%d",count];
         NSImage *image = [NSImage imageNamed:name];
         if (image != nil) {
             // Scale down the image -- CoreAnimation doesn't like huge images
