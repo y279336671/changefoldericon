@@ -109,13 +109,13 @@ static NSString *MBCoverFlowViewImagePathContext;
 		[self setAutoresizesSubviews:YES];
 		
 		// Create the scroller
-		_scroller = [[MBCoverFlowScroller alloc] initWithFrame:NSMakeRect(10, 10, 400, 16)];
-		[_scroller setEnabled:YES];
-		[_scroller setTarget:self];
-		[_scroller setHidden:YES];
-		[_scroller setKnobProportion:1.0];
-		[_scroller setAction:@selector(_scrollerChange:)];
-		[self addSubview:_scroller];
+//        _scroller = [[MBCoverFlowScroller alloc] initWithFrame:NSMakeRect(10, 10, 400, 16)];
+//        [_scroller setEnabled:YES];
+//        [_scroller setTarget:self];
+//        [_scroller setHidden:YES];
+//        [_scroller setKnobProportion:1.0];
+//        [_scroller setAction:@selector(_scrollerChange:)];
+//        [self addSubview:_scroller];
 		
 		_leftTransform = CATransform3DMakeRotation(-0.79, 0, -1, 0);
 		_rightTransform = CATransform3DMakeRotation(MBCoverFlowViewPerspectiveAngle, 0, -1, 0);
@@ -124,7 +124,7 @@ static NSString *MBCoverFlowViewImagePathContext;
 	
 		CALayer *rootLayer = [CALayer layer];
 		rootLayer.layoutManager = [CAConstraintLayoutManager layoutManager];
-		rootLayer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
+		rootLayer.backgroundColor = CGColorGetConstantColor(kCGColorClear);
 		[self setLayer:rootLayer];
 		
 		_containerLayer = [CALayer layer];
@@ -171,62 +171,63 @@ static NSString *MBCoverFlowViewImagePathContext;
 		_rightGradientLayer = [CALayer layer];
 		_bottomGradientLayer = [CALayer layer];
 		
-		// left
-		gradientRect.origin = CGPointZero;
-		gradientRect.size.width = [self frame].size.width;
-		gradientRect.size.height = [self frame].size.height;
-		bytesPerRow = 4*gradientRect.size.width;
-		bitmapData = malloc(bytesPerRow * gradientRect.size.height);
-		context = CGBitmapContextCreate(bitmapData, gradientRect.size.width,
-										gradientRect.size.height, 8,  bytesPerRow, 
-										CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB), kCGImageAlphaPremultipliedFirst);
-		gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0. alpha:1.] endingColor:[NSColor colorWithDeviceWhite:0. alpha:0]];
-		nsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:YES];
-		[NSGraphicsContext saveGraphicsState];
-		[NSGraphicsContext setCurrentContext:nsContext];
-		[gradient drawInRect:NSMakeRect(0, 0, gradientRect.size.width, gradientRect.size.height) angle:0];
-		[NSGraphicsContext restoreGraphicsState];
-		CGImageRef gradientImage = CGBitmapContextCreateImage(context);
-        _leftGradientLayer.contents = (__bridge id)gradientImage;
-		CGContextRelease(context);
-		CGImageRelease(gradientImage);
-		free(bitmapData);
-		
-		// right
-		bitmapData = malloc(bytesPerRow * gradientRect.size.height);
-		context = CGBitmapContextCreate(bitmapData, gradientRect.size.width,
-										gradientRect.size.height, 8,  bytesPerRow, 
-										CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB), kCGImageAlphaPremultipliedFirst);
-		nsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:YES];
-		[NSGraphicsContext saveGraphicsState];
-		[NSGraphicsContext setCurrentContext:nsContext];
-		[gradient drawInRect:NSMakeRect(0, 0, gradientRect.size.width, gradientRect.size.height) angle:180];
-		[NSGraphicsContext restoreGraphicsState];
-		gradientImage = CGBitmapContextCreateImage(context);
-        _rightGradientLayer.contents = (__bridge id)gradientImage;
-		CGContextRelease(context);
-		CGImageRelease(gradientImage);
-		free(bitmapData);
-		
-		// bottom
-		gradientRect.size.width = [self frame].size.width;
-		gradientRect.size.height = 32;
-		bytesPerRow = 4*gradientRect.size.width;
-		bitmapData = malloc(bytesPerRow * gradientRect.size.height);
-		context = CGBitmapContextCreate(bitmapData, gradientRect.size.width,
-										gradientRect.size.height, 8,  bytesPerRow, 
-										CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB), kCGImageAlphaPremultipliedFirst);
-		nsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:YES];
-		[NSGraphicsContext saveGraphicsState];
-		[NSGraphicsContext setCurrentContext:nsContext];
-		[gradient drawInRect:NSMakeRect(0, 0, gradientRect.size.width, gradientRect.size.height) angle:90];
-		[NSGraphicsContext restoreGraphicsState];
-		gradientImage = CGBitmapContextCreateImage(context);
-        _bottomGradientLayer.contents = (__bridge id)gradientImage;
-		CGContextRelease(context);
-		CGImageRelease(gradientImage);
-		free(bitmapData);
-		
+        // left
+//        gradientRect.origin = CGPointZero;
+//        gradientRect.size.width = [self frame].size.width;
+//        gradientRect.size.height = [self frame].size.height;
+//        bytesPerRow = 4*gradientRect.size.width;
+//        bitmapData = malloc(bytesPerRow * gradientRect.size.height);
+//        context = CGBitmapContextCreate(bitmapData, gradientRect.size.width,
+//                                        gradientRect.size.height, 8,  bytesPerRow,
+//                                        CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB), kCGImageAlphaPremultipliedFirst);
+//        gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0. alpha:1.] endingColor:[NSColor colorWithDeviceWhite:0. alpha:0]];
+//        nsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:YES];
+//        [NSGraphicsContext saveGraphicsState];
+//        [NSGraphicsContext setCurrentContext:nsContext];
+//        [gradient drawInRect:NSMakeRect(0, 0, gradientRect.size.width, gradientRect.size.height) angle:0];
+//        [NSGraphicsContext restoreGraphicsState];
+//        CGImageRef gradientImage = CGBitmapContextCreateImage(context);
+//        _leftGradientLayer.contents = (__bridge id)gradientImage;
+//        CGContextRelease(context);
+//        CGImageRelease(gradientImage);
+//        free(bitmapData);
+//
+//        // right
+//        bitmapData = malloc(bytesPerRow * gradientRect.size.height);
+//        gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0. alpha:0] endingColor:[NSColor colorWithDeviceWhite:0. alpha:1.0]];
+//        context = CGBitmapContextCreate(bitmapData, gradientRect.size.width,
+//                                        gradientRect.size.height, 8,  bytesPerRow,
+//                                        CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB), kCGImageAlphaPremultipliedFirst);
+//        nsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:YES];
+//        [NSGraphicsContext saveGraphicsState];
+//        [NSGraphicsContext setCurrentContext:nsContext];
+//        [gradient drawInRect:NSMakeRect(0, 0, gradientRect.size.width, gradientRect.size.height) angle:0];
+//        [NSGraphicsContext restoreGraphicsState];
+//        gradientImage = CGBitmapContextCreateImage(context);
+//        _rightGradientLayer.contents = (__bridge id)gradientImage;
+//        CGContextRelease(context);
+//        CGImageRelease(gradientImage);
+//        free(bitmapData);
+
+        // bottom
+//        gradientRect.size.width = [self frame].size.width;
+//        gradientRect.size.height = 32;
+//        bytesPerRow = 4*gradientRect.size.width;
+//        bitmapData = malloc(bytesPerRow * gradientRect.size.height);
+//        context = CGBitmapContextCreate(bitmapData, gradientRect.size.width,
+//                                        gradientRect.size.height, 8,  bytesPerRow,
+//                                        CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB), kCGImageAlphaPremultipliedFirst);
+//        nsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:YES];
+//        [NSGraphicsContext saveGraphicsState];
+//        [NSGraphicsContext setCurrentContext:nsContext];
+//        [gradient drawInRect:NSMakeRect(0, 0, gradientRect.size.width, gradientRect.size.height) angle:90];
+//        [NSGraphicsContext restoreGraphicsState];
+//        gradientImage = CGBitmapContextCreateImage(context);
+//        _bottomGradientLayer.contents = (__bridge id)gradientImage;
+//        CGContextRelease(context);
+//        CGImageRelease(gradientImage);
+//        free(bitmapData);
+//        
 		// the autoresizing mask allows it to change shape with the parent layer
 		maskLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
 		maskLayer.layoutManager = [CAConstraintLayoutManager layoutManager];
@@ -304,15 +305,15 @@ static NSString *MBCoverFlowViewImagePathContext;
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-	if ([theEvent clickCount] == 2 && self.target && self.action) {
-		[self.target performSelector:self.action withObject:self];
-	}
-	
-	NSPoint mouseLocation = [self convertPoint:[theEvent locationInWindow] fromView:nil];
-	NSInteger clickedIndex = [self indexOfItemAtPoint:mouseLocation];
-	if (clickedIndex != NSNotFound) {
-		[self _setSelectionIndex:clickedIndex];
-	}
+    if ([theEvent clickCount] == 2 && self.target && self.action) {
+        [self.target performSelector:self.action withObject:self];
+    }
+    
+    NSPoint mouseLocation = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+    NSInteger clickedIndex = [self indexOfItemAtPoint:mouseLocation];
+    if (clickedIndex != NSNotFound) {
+        [self _setSelectionIndex:clickedIndex];
+    }
 }
 
 - (void)scrollWheel:(NSEvent *)theEvent
