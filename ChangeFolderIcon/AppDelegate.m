@@ -86,9 +86,9 @@
 
     button.target = self;
 
-    button.action = @selector(handleButtonClick:);
+//    button.action = @selector(handleButtonClick:);
 
-
+    [self bindSubMenu];
 }
 
 - (void)handleButtonClick:(NSStatusBarButton *)sender {
