@@ -97,6 +97,8 @@ static NSString *MBCoverFlowViewImagePathContext;
 - (id)initWithFrame:(NSRect)frameRect
 {
 	if (self = [super initWithFrame:frameRect]) {
+        self.wantsLayer = YES;
+        self.layer.backgroundColor = [NSColor blackColor].CGColor;
 		_bindingInfo = [[NSMutableDictionary alloc] init];
 		
 		_imageLoadQueue = [[NSOperationQueue alloc] init];
@@ -166,10 +168,10 @@ static NSString *MBCoverFlowViewImagePathContext;
 		 size changes because the images will be automatically interpolated
 		 to their new sizes; and as gradients, they are very well suited to
 		 interpolation. */
-		CALayer *maskLayer = [CALayer layer];
-		_leftGradientLayer = [CALayer layer];
-		_rightGradientLayer = [CALayer layer];
-		_bottomGradientLayer = [CALayer layer];
+//        CALayer *maskLayer = [CALayer layer];
+//        _leftGradientLayer = [CALayer layer];
+//        _rightGradientLayer = [CALayer layer];
+//        _bottomGradientLayer = [CALayer layer];
 		
         // left
 //        gradientRect.origin = CGPointZero;
@@ -229,29 +231,29 @@ static NSString *MBCoverFlowViewImagePathContext;
 //        free(bitmapData);
 //        
 		// the autoresizing mask allows it to change shape with the parent layer
-		maskLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
-		maskLayer.layoutManager = [CAConstraintLayoutManager layoutManager];
-		[_leftGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinX relativeTo:@"superlayer" attribute:kCAConstraintMinX]];
-		[_leftGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinY relativeTo:@"superlayer" attribute:kCAConstraintMinY]];
-		[_leftGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxY relativeTo:@"superlayer" attribute:kCAConstraintMaxY]];
-		[_leftGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxX relativeTo:@"superlayer" attribute:kCAConstraintMaxX scale:.5 offset:-[self itemSize].width / 2]];
-		[_rightGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxX relativeTo:@"superlayer" attribute:kCAConstraintMaxX]];
-		[_rightGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinY relativeTo:@"superlayer" attribute:kCAConstraintMinY]];
-		[_rightGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxY relativeTo:@"superlayer" attribute:kCAConstraintMaxY]];
-		[_rightGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinX relativeTo:@"superlayer" attribute:kCAConstraintMaxX scale:.5 offset:[self itemSize].width / 2]];
-		[_bottomGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxX relativeTo:@"superlayer" attribute:kCAConstraintMaxX]];
-		[_bottomGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinY relativeTo:@"superlayer" attribute:kCAConstraintMinY]];
-		[_bottomGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinX relativeTo:@"superlayer" attribute:kCAConstraintMinX]];
-		[_bottomGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxY relativeTo:@"superlayer" attribute:kCAConstraintMinY offset:32]];
+//        maskLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+//        maskLayer.layoutManager = [CAConstraintLayoutManager layoutManager];
+//        [_leftGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinX relativeTo:@"superlayer" attribute:kCAConstraintMinX]];
+//        [_leftGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinY relativeTo:@"superlayer" attribute:kCAConstraintMinY]];
+//        [_leftGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxY relativeTo:@"superlayer" attribute:kCAConstraintMaxY]];
+//        [_leftGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxX relativeTo:@"superlayer" attribute:kCAConstraintMaxX scale:.5 offset:-[self itemSize].width / 2]];
+//        [_rightGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxX relativeTo:@"superlayer" attribute:kCAConstraintMaxX]];
+//        [_rightGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinY relativeTo:@"superlayer" attribute:kCAConstraintMinY]];
+//        [_rightGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxY relativeTo:@"superlayer" attribute:kCAConstraintMaxY]];
+//        [_rightGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinX relativeTo:@"superlayer" attribute:kCAConstraintMaxX scale:.5 offset:[self itemSize].width / 2]];
+//        [_bottomGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxX relativeTo:@"superlayer" attribute:kCAConstraintMaxX]];
+//        [_bottomGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinY relativeTo:@"superlayer" attribute:kCAConstraintMinY]];
+//        [_bottomGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMinX relativeTo:@"superlayer" attribute:kCAConstraintMinX]];
+//        [_bottomGradientLayer addConstraint:[CAConstraint constraintWithAttribute:kCAConstraintMaxY relativeTo:@"superlayer" attribute:kCAConstraintMinY offset:32]];
+//
+//        _bottomGradientLayer.masksToBounds = YES;
 		
-		_bottomGradientLayer.masksToBounds = YES;
-		
-		[maskLayer addSublayer:_rightGradientLayer];
-		[maskLayer addSublayer:_leftGradientLayer];
-		[maskLayer addSublayer:_bottomGradientLayer];
+//        [maskLayer addSublayer:_rightGradientLayer];
+//        [maskLayer addSublayer:_leftGradientLayer];
+//        [maskLayer addSublayer:_bottomGradientLayer];
 		// we make it a sublayer rather than a mask so that the overlapping alpha will work correctly
 		// without the use of a compositing filter
-		[_containerLayer addSublayer:maskLayer];
+//        [_containerLayer addSublayer:maskLayer];
 	}
 	return self;
 }
@@ -283,31 +285,31 @@ static NSString *MBCoverFlowViewImagePathContext;
 	return YES;
 }
 
-- (void)keyDown:(NSEvent *)theEvent
-{	
-	switch ([theEvent keyCode]) {
-		case MBLeftArrowKeyCode:
-			[self _setSelectionIndex:(self.selectionIndex - 1)];
-			break;
-		case MBRightArrowKeyCode:
-			[self _setSelectionIndex:(self.selectionIndex + 1)];
-			break;
-		case MBReturnKeyCode:
-			if (self.target && self.action) {
-				[self.target performSelector:self.action withObject:self];
-				break;
-			}
-		default:
-			[super keyDown:theEvent];
-			break;
-	}
-}
+//- (void)keyDown:(NSEvent *)theEvent
+//{
+//    switch ([theEvent keyCode]) {
+//        case MBLeftArrowKeyCode:
+//            [self _setSelectionIndex:(self.selectionIndex - 1)];
+//            break;
+//        case MBRightArrowKeyCode:
+//            [self _setSelectionIndex:(self.selectionIndex + 1)];
+//            break;
+//        case MBReturnKeyCode:
+//            if (self.target && self.action) {
+//                [self.target performSelector:self.action withObject:self];
+//                break;
+//            }
+//        default:
+//            [super keyDown:theEvent];
+//            break;
+//    }
+//}
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-    if ([theEvent clickCount] == 2 && self.target && self.action) {
-        [self.target performSelector:self.action withObject:self];
-    }
+//    if ([theEvent clickCount] == 2 && self.target && self.action) {
+//        [self.target performSelector:self.action withObject:self];
+//    }
     
     NSPoint mouseLocation = [self convertPoint:[theEvent locationInWindow] fromView:nil];
     NSInteger clickedIndex = [self indexOfItemAtPoint:mouseLocation];
@@ -316,22 +318,22 @@ static NSString *MBCoverFlowViewImagePathContext;
     }
 }
 
-- (void)scrollWheel:(NSEvent *)theEvent
-{
-	if (fabs([theEvent deltaY]) > MBCoverFlowScrollMinimumDeltaThreshold) {
-		if ([theEvent deltaY] > 0) {
-			[self _setSelectionIndex:(self.selectionIndex - 1)];
-		} else {
-			[self _setSelectionIndex:(self.selectionIndex + 1)];
-		}
-	} else if (fabs([theEvent deltaX]) > MBCoverFlowScrollMinimumDeltaThreshold) {
-		if ([theEvent deltaX] > 0) {
-			[self _setSelectionIndex:(self.selectionIndex - 1)];
-		} else {
-			[self _setSelectionIndex:(self.selectionIndex + 1)];
-		}
-	}
-}
+//- (void)scrollWheel:(NSEvent *)theEvent
+//{
+//    if (fabs([theEvent deltaY]) > MBCoverFlowScrollMinimumDeltaThreshold) {
+//        if ([theEvent deltaY] > 0) {
+//            [self _setSelectionIndex:(self.selectionIndex - 1)];
+//        } else {
+//            [self _setSelectionIndex:(self.selectionIndex + 1)];
+//        }
+//    } else if (fabs([theEvent deltaX]) > MBCoverFlowScrollMinimumDeltaThreshold) {
+//        if ([theEvent deltaX] > 0) {
+//            [self _setSelectionIndex:(self.selectionIndex - 1)];
+//        } else {
+//            [self _setSelectionIndex:(self.selectionIndex + 1)];
+//        }
+//    }
+//}
 
 #pragma mark NSView
 
@@ -427,7 +429,10 @@ static NSString *MBCoverFlowViewImagePathContext;
 	}
 	
 	[_scroller setNumberOfIncrements:fmax([self.content count]-1, 0)];
-	self.selectionIndex = self.selectionIndex;
+    
+//    self.selectionIndex = self.selectionIndex;
+//    初始化定位在最中间的位置
+    self.selectionIndex = newContents.count/2 ;
 }
 
 - (void)setImageKeyPath:(NSString *)keyPath
