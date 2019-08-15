@@ -39,7 +39,7 @@ static const CGFloat BtnInterval = 20 ;
         case 0:
             {
                 for (NSInteger i = 0; i < 50; i ++) {
-                    NSButton *btn = [NSButton buttonWithTitle:@"" target:self action:@selector(btnClick)];
+                    NSButton *btn = [NSButton buttonWithTitle:[NSString stringWithFormat:@"%d",i] target:self action:@selector(btnClick)];
                     btn.frame = CGRectMake(70*i + BtnInterval, 0, IconWidth, 50);
                     btn.wantsLayer = YES;
                     btn.layer.backgroundColor = [NSColor redColor].CGColor;
@@ -90,7 +90,7 @@ static const CGFloat BtnInterval = 20 ;
     if (_containerView == nil) {
         _containerView = [[NSScrollView alloc]initWithFrame:CGRectMake(20, 80, self.frame.size.width-40, 80)];
         _containerView.documentView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 1000, 50)];//todo 这个宽度需要根据具体的按钮个数来设定
-        _containerView.hasHorizontalScroller = true;
+//        _containerView.hasHorizontalScroller = true;
     }
     return _containerView;
 }
@@ -122,12 +122,16 @@ static const CGFloat BtnInterval = 20 ;
 
 -(void)leftClick{
     //todo 移动位置不对
-    [self.containerView.documentView scrollPoint:NSMakePoint(self.containerView.documentView.x-IconWidth-BtnInterval, self.containerView.documentView.y)];
+    CGFloat x = self.containerView.contentView.bounds.origin.x-(IconWidth+BtnInterval) ;
+    CGFloat y = self.containerView.documentView.y;
+    [self.containerView.documentView scrollPoint:NSMakePoint(x, y)];
 }
 
 -(void)rightClick{
-    //todo 移动位置不对
-    [self.containerView.documentView scrollPoint:NSMakePoint(self.containerView.documentView.x+IconWidth+BtnInterval, self.containerView.documentView.y)];
+
+    CGFloat x = self.containerView.contentView.bounds.origin.x+ IconWidth+BtnInterval;
+    CGFloat y = self.containerView.documentView.y;
+    [self.containerView.documentView scrollPoint:NSMakePoint(x,y)];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {

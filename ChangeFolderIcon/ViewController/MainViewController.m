@@ -85,7 +85,6 @@
     if(_bottomView == nil) {
         _bottomView = [[BottomView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 80, 200)];
         _bottomView.wantsLayer = YES;
-
     }
     return _bottomView;
 

@@ -99,7 +99,6 @@
         NSRunningApplication *runningApp = [array objectAtIndex:0];
         if (!runningApp.isActive) {
             [self openApp];
-
         }
         [self bindSubMenu];
     }
@@ -126,19 +125,19 @@
 }
 
 - (void)menuDidClose:(NSMenu *)menu {
-    NSLog(@"menuDidClose");
-    NSString *bundleId = [[Tools getAppInfo] objectForKey:@"CFBundleIdentifier"];
-    NSArray *array = [NSRunningApplication runningApplicationsWithBundleIdentifier:bundleId];
-    if ([array count] > 0) {
-        NSRunningApplication *runningApp = [array objectAtIndex:0];
-        if (runningApp.isActive) {
-            [self bindSubMenu];
-
-        } else{
-            [self unBindSubMenu];
-        }
-
-    }
+//    NSLog(@"menuDidClose");
+//    NSString *bundleId = [[Tools getAppInfo] objectForKey:@"CFBundleIdentifier"];
+//    NSArray *array = [NSRunningApplication runningApplicationsWithBundleIdentifier:bundleId];
+//    if ([array count] > 0) {
+//        NSRunningApplication *runningApp = [array objectAtIndex:0];
+//        if (runningApp.isActive) {
+//            [self bindSubMenu];
+//
+//        } else{
+//            [self unBindSubMenu];
+//        }
+//
+//    }
 
 }
 
