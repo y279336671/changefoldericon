@@ -54,7 +54,7 @@ const float MBCoverFlowViewPerspectiveCenterPosition = 100.0;
 const float MBCoverFlowViewPerspectiveSidePosition = 0.0;
 const float MBCoverFlowViewPerspectiveSideSpacingFactor = 0.75;
 const float MBCoverFlowViewPerspectiveRowScaleFactor = 0.85;
-const float MBCoverFlowViewPerspectiveAngle = 0.79;
+const float MBCoverFlowViewPerspectiveAngle = 0.59;
 
 // KVO
 static NSString *MBCoverFlowViewImagePathContext;
@@ -119,7 +119,7 @@ static NSString *MBCoverFlowViewImagePathContext;
 //        [_scroller setAction:@selector(_scrollerChange:)];
 //        [self addSubview:_scroller];
 		
-		_leftTransform = CATransform3DMakeRotation(-0.79, 0, -1, 0);
+		_leftTransform = CATransform3DMakeRotation(-0.59, 0, -1, 0);
 		_rightTransform = CATransform3DMakeRotation(MBCoverFlowViewPerspectiveAngle, 0, -1, 0);
 	
 		_itemSize = NSMakeSize(MBCoverFlowViewDefaultItemWidth, MBCoverFlowViewDefaultItemHeight);
@@ -144,23 +144,23 @@ static NSString *MBCoverFlowViewImagePathContext;
 		[_containerLayer addSublayer:_scrollLayer];
 		
 		// Create a gradient image to use for image shadows
-		CGRect gradientRect;
-		gradientRect.origin = CGPointZero;
-		gradientRect.size = NSSizeToCGSize([self itemSize]);
-		size_t bytesPerRow = 4*gradientRect.size.width;
-		void* bitmapData = malloc(bytesPerRow * gradientRect.size.height);
-		CGContextRef context = CGBitmapContextCreate(bitmapData, gradientRect.size.width,
-													 gradientRect.size.height, 8,  bytesPerRow, 
-													 CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB), kCGImageAlphaPremultipliedFirst);
-		NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0 alpha:0.6] endingColor:[NSColor colorWithDeviceWhite:0 alpha:1.0]];
-		NSGraphicsContext *nsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:YES];
-		[NSGraphicsContext saveGraphicsState];
-		[NSGraphicsContext setCurrentContext:nsContext];
-		[gradient drawInRect:NSMakeRect(0, 0, gradientRect.size.width, gradientRect.size.height) angle:90];
-		[NSGraphicsContext restoreGraphicsState];
-		_shadowImage = CGBitmapContextCreateImage(context);
-		CGContextRelease(context);
-		free(bitmapData);
+        CGRect gradientRect;
+        gradientRect.origin = CGPointZero;
+        gradientRect.size = NSSizeToCGSize([self itemSize]);
+        size_t bytesPerRow = 4*gradientRect.size.width;
+        void* bitmapData = malloc(bytesPerRow * gradientRect.size.height);
+        CGContextRef context = CGBitmapContextCreate(bitmapData, gradientRect.size.width,
+                                                     gradientRect.size.height, 8,  bytesPerRow,
+                                                     CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB), kCGImageAlphaPremultipliedFirst);
+        NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0 alpha:0.6] endingColor:[NSColor colorWithDeviceWhite:0 alpha:1.0]];
+        NSGraphicsContext *nsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:YES];
+        [NSGraphicsContext saveGraphicsState];
+        [NSGraphicsContext setCurrentContext:nsContext];
+        [gradient drawInRect:NSMakeRect(0, 0, gradientRect.size.width, gradientRect.size.height) angle:90];
+        [NSGraphicsContext restoreGraphicsState];
+        _shadowImage = CGBitmapContextCreateImage(context);
+        CGContextRelease(context);
+        free(bitmapData);
 		
 		
 		/* create a pleasant gradient mask around our central layer.
@@ -544,29 +544,6 @@ static NSString *MBCoverFlowViewImagePathContext;
 	[self resizeSubviewsWithOldSize:[self frame].size];
 }
 
-- (void)setAccessoryController:(NSViewController *)aController
-{
-	if (aController == self.accessoryController)
-		return;
-	
-	if (self.accessoryController != nil) {
-		[self.accessoryController.view removeFromSuperview];
-		[self.accessoryController unbind:@"representedObject"];
-		_accessoryController = nil;
-		[self setNextResponder:nil];
-	}
-	
-	if (aController != nil) {
-        _accessoryController = aController;
-		[self addSubview:self.accessoryController.view];
-		[self.accessoryController setNextResponder:[self nextResponder]];
-		[self setNextResponder:self.accessoryController];
-		[self.accessoryController bind:@"representedObject" toObject:self withKeyPath:@"selectedObject" options:nil];
-	}
-	
-	[self resizeSubviewsWithOldSize:[self frame].size];
-}
-
 #pragma mark Managing the Selection
 
 - (void)setSelectionIndex:(NSInteger)newIndex
@@ -732,10 +709,11 @@ static NSString *MBCoverFlowViewImagePathContext;
 	
 	[layer setValue:[NSNumber numberWithInteger:index] forKey:@"index"];
 	[layer setValue:[NSNumber numberWithBool:NO] forKey:@"hasImage"];
-	
-	// Create the operation
-	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(_loadImageForLayer:) object:layer];
-	[_imageLoadQueue addOperation:operation];
+//   注释掉不用 解决图片加载慢的问题
+//    // Create the operation
+//    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(_loadImageForLayer:) object:layer];
+//    [_imageLoadQueue addOperation:operation];
+    [self _loadImageForLayer:layer];
 }
 
 - (void)_loadImageForLayer:(CALayer *)layer
