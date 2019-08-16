@@ -34,7 +34,7 @@
     [self.view addSubview:self.bottomView];
     
     self.topVC = [[TopViewController alloc]init];
-    self.topVC.view.frame = CGRectMake(0, 200, self.view.frame.size.width - 80, self.view.frame.size.height - 200);
+    self.topVC.view.frame = CGRectMake(0, 200, self.view.frame.size.width - 100, self.view.frame.size.height - 200);
     [self.view addSubview:self.topVC.view];
     
     NSButton *btn = [NSButton buttonWithTitle:@"选择文件" target:self action:@selector(btnClick)];
@@ -85,7 +85,7 @@
 - (BottomView *)bottomView
 {
     if(_bottomView == nil) {
-        _bottomView = [[BottomView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 80, 200)];
+        _bottomView = [[BottomView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 100, 200)];
         _bottomView.wantsLayer = YES;
     }
     return _bottomView;
@@ -96,7 +96,7 @@
 - (RightList *)rightList
 {
     if (_rightList == nil) {
-        _rightList = [[RightList alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 80, 0, 80, self.view.frame.size.height)];
+        _rightList = [[RightList alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 100, 0, 80, self.view.frame.size.height)];
         _rightList.delegate = self;
     }
     return _rightList;

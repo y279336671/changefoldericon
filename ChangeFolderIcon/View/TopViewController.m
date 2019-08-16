@@ -22,7 +22,7 @@
     // Do view setup here.
     
     
-    MBCoverFlowView *flowView = [[MBCoverFlowView alloc]initWithFrame:CGRectMake(0, 0, 400, 200)];
+    MBCoverFlowView *flowView = [[MBCoverFlowView alloc]initWithFrame:CGRectMake(0, 0, 600, 200)];
     [self.view addSubview:flowView];
     self.flowView = flowView;
     

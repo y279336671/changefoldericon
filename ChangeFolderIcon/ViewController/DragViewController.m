@@ -10,6 +10,7 @@
 #import "DestinationView.h"
 
 @interface DragViewController ()<DragDropViewDelegate>
+@property (strong, nonatomic)NSButton *closeBtn;
 @property (strong, nonatomic)NSTextField *statusLabel;
 @property (strong, nonatomic)DestinationView *dView;
 @end
@@ -19,7 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-
+    
+    [self.view addSubview:self.closeBtn];
     
     [self addTipsLabel];
     
@@ -30,6 +32,22 @@
     
     [self.dView addSubview:self.statusLabel];
     self.statusLabel.hidden = NO;
+}
+
+- (void)btnClick
+{
+    [self dismissViewController:self];
+}
+
+- (NSButton *)closeBtn
+{
+    if (_closeBtn == nil) {
+        _closeBtn = [NSButton buttonWithImage:[NSImage imageNamed:@"drag_close"] target:self action:@selector(btnClick)];
+        _closeBtn.wantsLayer = YES;
+        _closeBtn.layer.backgroundColor = [NSColor clearColor].CGColor;
+        _closeBtn.frame = CGRectMake(10, self.view.frame.size.height - 40, 40, 40);
+    }
+    return _closeBtn;
 }
 
 - (NSTextField *)statusLabel
@@ -56,10 +74,10 @@
     label0.backgroundColor = [NSColor clearColor]; //控件背景色
     label0.textColor = [NSColor blackColor];  //文字颜色
     label0.font = [NSFont boldSystemFontOfSize:20];
-    label0.alignment = NSTextAlignmentRight; //水平显示方式
+    label0.alignment = NSTextAlignmentCenter; //水平显示方式
     label0.maximumNumberOfLines = 2; //最多显示行数
-    label0.frame = NSMakeRect(40, self.view.frame.size.height - 30, 400, 30);
-    label0.stringValue = @"将需要的文件拖拽进入虚线区域即可完成修改";
+    label0.frame = NSMakeRect(40, self.view.frame.size.height - 40, 500, 30);
+    label0.stringValue = @"将需要的文件拖拽进入白色区域即可完成修改";
     
     [self.view addSubview:label0];
    
